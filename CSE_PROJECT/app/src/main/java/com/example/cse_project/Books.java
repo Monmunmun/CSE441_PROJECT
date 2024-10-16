@@ -6,13 +6,18 @@ public class Books {
     private String author;
     private double price;
     private String imageUrl;
+    private int stock;
+    private String category;
 
-    public Books(int id, String title, String author, double price, String imageUrl) {
+
+    public Books(int id, String title, String author, double price, String imageUrl, int stock, String category) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.price = price;
         this.imageUrl = imageUrl;
+        this.stock = stock;
+        this.category = category;
     }
 
     public int getId() {
@@ -55,6 +60,24 @@ public class Books {
         this.imageUrl = imageUrl;
     }
 
+    // Getter và Setter cho stock
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    // Getter và Setter cho category
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
     @Override
     public String toString() {
         return "Books{" +
@@ -63,6 +86,9 @@ public class Books {
                 ", author='" + author + '\'' +
                 ", price=" + price +
                 ", imageUrl='" + imageUrl + '\'' +
+                ", stock=" + stock +
+                ", category='" + category + '\'' +
                 '}';
     }
 }
+
