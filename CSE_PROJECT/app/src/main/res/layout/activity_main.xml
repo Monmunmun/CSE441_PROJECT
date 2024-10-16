@@ -72,7 +72,7 @@
                     android:id="@+id/book_image1"
                     android:layout_width="100dp"
                     android:layout_height="150dp"
-                    android:src="@drawable/book1"
+                    android:src="@drawable/book3"
                     android:scaleType="fitXY" />
 
                 <TextView
@@ -141,7 +141,7 @@
                     android:id="@+id/book_title3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nguồn gốc bệnh dịch..."
+                    android:text="Nguồn gốc bệnh ..."
                     android:textSize="14sp"
                     android:maxLines="1" />
 
