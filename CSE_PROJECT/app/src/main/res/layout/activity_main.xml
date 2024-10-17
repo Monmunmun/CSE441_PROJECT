@@ -20,7 +20,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/rounded_edittext"
-            android:drawableLeft="@drawable/ic_search_limited"
             android:hint="Nhập từ khóa tìm kiếm"
             android:padding="10dp"
             android:textColor="#000000"
@@ -274,53 +273,122 @@
     </HorizontalScrollView>
 
     <LinearLayout
-        android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:orientation="horizontal"
-        android:gravity="center"
-        android:background="#146918"
-        android:padding="10dp">
+        android:weightSum="5"
+        android:background="#E0E0E0"
+        android:padding="8dp">
 
-        <ImageButton
-            android:id="@+id/home_button"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:src="@drawable/ic_home"
-            android:contentDescription="Trang chủ"
-            android:layout_marginRight="16dp"
-            android:background="?attr/selectableItemBackgroundBorderless"/>
-        <ImageButton
-            android:id="@+id/menu_button"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:src="@drawable/ic_menu"
-            android:contentDescription="Danh mục"
-            android:layout_marginRight="16dp"
-            android:background="?attr/selectableItemBackgroundBorderless"/>
-        <ImageButton
-            android:id="@+id/shop_button"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:src="@drawable/ic_shop"
-            android:contentDescription="Giỏ hàng"
-            android:layout_marginRight="16dp"
-            android:background="?attr/selectableItemBackgroundBorderless"/>
-        <ImageButton
-            android:id="@+id/help_button"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:src="@drawable/ic_help"
-            android:contentDescription="Hỗ trợ"
-            android:layout_marginRight="16dp"
-            android:background="?attr/selectableItemBackgroundBorderless"/>
-        <ImageButton
-            android:id="@+id/profile_button"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:src="@drawable/ic_profile"
-            android:contentDescription="Profile"
-            android:layout_marginRight="16dp"
-            android:background="?attr/selectableItemBackgroundBorderless"/>
+        <!-- Trang chủ -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_home"
+                android:contentDescription="Trang chủ" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trang chủ"
+                android:textSize="12sp"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+
+        <!-- Danh mục -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_category"
+                android:contentDescription="Danh mục" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Danh mục"
+                android:textSize="12sp"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+
+        <!-- Giỏ hàng -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_cart"
+                android:contentDescription="Giỏ hàng" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Giỏ hàng"
+                android:textSize="12sp"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+
+        <!-- Hỗ trợ -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_help"
+                android:contentDescription="Hỗ trợ" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hỗ trợ"
+                android:textSize="12sp"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+
+        <!-- Cá nhân -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_profile"
+                android:contentDescription="Cá nhân" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cá nhân"
+                android:textSize="12sp"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+
     </LinearLayout>
 </LinearLayout>

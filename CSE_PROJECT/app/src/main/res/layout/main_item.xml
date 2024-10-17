@@ -7,7 +7,7 @@
     android:padding="10dp"
     android:gravity="center_vertical">
 
-    <!-- Hình ảnh sách -->
+
     <ImageView
         android:id="@+id/img1"
         android:layout_width="80dp"
