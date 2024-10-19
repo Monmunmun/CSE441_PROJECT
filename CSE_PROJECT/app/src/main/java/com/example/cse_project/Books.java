@@ -1,7 +1,7 @@
 package com.example.cse_project;
 
 public class Books {
-    private int id;
+    private String key;
     private String title;
     private String author;
     private double price;
@@ -9,9 +9,8 @@ public class Books {
     private int stock;
     private String category;
 
-
-    public Books(int id, String title, String author, double price, String imageUrl, int stock, String category) {
-        this.id = id;
+    public Books(String key, String title, String author, double price, String imageUrl, int stock, String category) {
+        this.key = key;
         this.title = title;
         this.author = author;
         this.price = price;
@@ -20,14 +19,20 @@ public class Books {
         this.category = category;
     }
 
-    public int getId() {
-        return id;
+    // Constructor mặc định cần thiết cho Firebase
+    public Books() {
     }
 
-    public void setId(int id) {
-        this.id = id;
+    // Getter và Setter cho key
+    public String getKey() {
+        return key;
     }
 
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    // Getter và Setter cho các thuộc tính khác
     public String getTitle() {
         return title;
     }
@@ -60,7 +65,6 @@ public class Books {
         this.imageUrl = imageUrl;
     }
 
-    // Getter và Setter cho stock
     public int getStock() {
         return stock;
     }
@@ -69,7 +73,6 @@ public class Books {
         this.stock = stock;
     }
 
-    // Getter và Setter cho category
     public String getCategory() {
         return category;
     }
@@ -81,7 +84,7 @@ public class Books {
     @Override
     public String toString() {
         return "Books{" +
-                "id=" + id +
+                "key='" + key + '\'' +
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
                 ", price=" + price +
@@ -91,4 +94,5 @@ public class Books {
                 '}';
     }
 }
+
 

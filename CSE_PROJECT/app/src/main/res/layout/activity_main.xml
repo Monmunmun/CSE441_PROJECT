@@ -6,6 +6,7 @@
     android:orientation="vertical"
     android:padding="0dp">
 
+    <!-- Search Bar -->
     <LinearLayout
         android:id="@+id/search_bar"
         android:layout_width="match_parent"
@@ -32,6 +33,7 @@
             android:background="?attr/selectableItemBackgroundBorderless"/>
     </LinearLayout>
 
+    <!-- Banner Image -->
     <ImageView
         android:id="@+id/banner_image"
         android:layout_width="match_parent"
@@ -39,6 +41,7 @@
         android:src="@drawable/backgroud_main"
         android:scaleType="centerCrop" />
 
+    <!-- Top Bán Chạy -->
     <TextView
         android:id="@+id/top_best_sellers"
         android:layout_width="wrap_content"
@@ -46,114 +49,15 @@
         android:text="TOP Bán Chạy Tháng 10/2024"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:paddingTop="10dp"/>
+        android:paddingTop="10dp" />
 
-    <HorizontalScrollView
-        android:id="@+id/book_list_scroll_view"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/top_best_sellers_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="none">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="5dp">
-
-            <LinearLayout
-                android:id="@+id/book_item1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="5dp">
-
-                <ImageView
-                    android:id="@+id/book_image1"
-                    android:layout_width="100dp"
-                    android:layout_height="150dp"
-                    android:src="@drawable/book3"
-                    android:scaleType="fitXY" />
-
-                <TextView
-                    android:id="@+id/book_title1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Yêu Em Bằng Mắt..."
-                    android:textSize="14sp"
-                    android:maxLines="1" />
-
-                <TextView
-                    android:id="@+id/book_price1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="140.000 đ"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/holo_red_dark" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/book_item2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="5dp">
-
-                <ImageView
-                    android:id="@+id/book_image2"
-                    android:layout_width="100dp"
-                    android:layout_height="150dp"
-                    android:src="@drawable/book2"
-                    android:scaleType="fitXY" />
-
-                <TextView
-                    android:id="@+id/book_title2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lì quá để nói..."
-                    android:textSize="14sp"
-                    android:maxLines="1" />
-
-                <TextView
-                    android:id="@+id/book_price2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="62.000 đ"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/holo_red_dark" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/book_item3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="5dp">
-
-                <ImageView
-                    android:id="@+id/book_image3"
-                    android:layout_width="100dp"
-                    android:layout_height="150dp"
-                    android:src="@drawable/book3"
-                    android:scaleType="fitXY" />
-
-                <TextView
-                    android:id="@+id/book_title3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nguồn gốc bệnh ..."
-                    android:textSize="14sp"
-                    android:maxLines="1" />
-
-                <TextView
-                    android:id="@+id/book_price3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="199.000 đ"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/holo_red_dark" />
-            </LinearLayout>
-        </LinearLayout>
-    </HorizontalScrollView>
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:scrollbars="horizontal" />
 
     <TextView
         android:id="@+id/new_literature_books"
@@ -164,114 +68,15 @@
         android:textStyle="bold"
         android:paddingTop="10dp" />
 
-    <HorizontalScrollView
-        android:id="@+id/new_books_scroll_view"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/new_literature_books_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="none">
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:scrollbars="horizontal" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="5dp">
-
-            <LinearLayout
-                android:id="@+id/new_book_item1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="5dp">
-
-                <ImageView
-                    android:id="@+id/new_book_image1"
-                    android:layout_width="100dp"
-                    android:layout_height="150dp"
-                    android:src="@drawable/book1"
-                    android:scaleType="fitXY" />
-
-                <TextView
-                    android:id="@+id/new_book_title1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Yêu Em Bằng Mắt..."
-                    android:textSize="14sp"
-                    android:maxLines="1" />
-
-                <TextView
-                    android:id="@+id/new_book_price1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="140.000 đ"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/holo_red_dark" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/new_book_item2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="5dp">
-
-                <ImageView
-                    android:id="@+id/new_book_image2"
-                    android:layout_width="100dp"
-                    android:layout_height="150dp"
-                    android:src="@drawable/book2"
-                    android:scaleType="fitXY" />
-
-                <TextView
-                    android:id="@+id/new_book_title2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lì quá để nói..."
-                    android:textSize="14sp"
-                    android:maxLines="1" />
-
-                <TextView
-                    android:id="@+id/new_book_price2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="62.000 đ"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/holo_red_dark" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/new_book_item3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="5dp">
-
-                <ImageView
-                    android:id="@+id/new_book_image3"
-                    android:layout_width="100dp"
-                    android:layout_height="150dp"
-                    android:src="@drawable/book3"
-                    android:scaleType="fitXY" />
-
-                <TextView
-                    android:id="@+id/new_book_title3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nguồn gốc bệnh dịch..."
-                    android:textSize="14sp"
-                    android:maxLines="1" />
-
-                <TextView
-                    android:id="@+id/new_book_price3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="199.000 đ"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/holo_red_dark" />
-            </LinearLayout>
-
-        </LinearLayout>
-    </HorizontalScrollView>
-
+    <!-- Bottom Navigation -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="55dp"

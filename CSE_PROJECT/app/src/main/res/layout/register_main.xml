@@ -8,12 +8,6 @@
     android:padding="16dp"
     android:background="@android:color/white">
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/logo"
-        android:contentDescription="@string/app_name" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,6 +17,22 @@
         android:textColor="#146918"
         android:textSize="24sp"
         android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tên"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tên của bạn"
+        android:padding="10dp"
+        android:layout_marginTop="8dp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -117,6 +127,7 @@
         android:textColor="@android:color/white" />
 
     <TextView
+        android:id="@+id/login_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Bạn đã có tài khoản? Đăng nhập"
