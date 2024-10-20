@@ -19,11 +19,11 @@ public class Books {
         this.category = category;
     }
 
-    // Constructor mặc định cần thiết cho Firebase
+
     public Books() {
     }
 
-    // Getter và Setter cho key
+
     public String getKey() {
         return key;
     }
@@ -32,7 +32,7 @@ public class Books {
         this.key = key;
     }
 
-    // Getter và Setter cho các thuộc tính khác
+
     public String getTitle() {
         return title;
     }

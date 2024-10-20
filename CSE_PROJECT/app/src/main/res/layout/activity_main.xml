@@ -94,10 +94,11 @@
             android:gravity="center">
 
             <ImageView
+                android:id="@+id/mainactivity"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_home"
-                android:contentDescription="Trang chủ" />
+                android:contentDescription="Trang chủ"
+                android:src="@drawable/ic_home" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -182,10 +183,11 @@
             android:gravity="center">
 
             <ImageView
+                android:id="@+id/useractivity"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_profile"
-                android:contentDescription="Cá nhân" />
+                android:contentDescription="Cá nhân"
+                android:src="@drawable/ic_profile" />
 
             <TextView
                 android:layout_width="wrap_content"

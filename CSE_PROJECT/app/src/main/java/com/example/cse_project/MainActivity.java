@@ -3,6 +3,9 @@ package com.example.cse_project;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -76,13 +79,19 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
         boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
         if (!isLoggedIn) {
-            // Nếu chưa đăng nhập, chuyển hướng tới trang đăng nhập
+
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
-            finish(); // Kết thúc MainActivity để không trở lại
-        } else {
-            // Nếu đã đăng nhập, tiếp tục với giao diện chính
-            // Ở đây bạn có thể thêm mã để hiển thị nội dung chính của ứng dụng
+            finish();
         }
+
+        ImageView userProfile = findViewById(R.id.useractivity);
+        userProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, UserActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

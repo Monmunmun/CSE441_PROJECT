@@ -1,17 +1,16 @@
 package com.example.cse_project;
 
 public class Users {
-    private String key;  // Dùng key thay cho ID
+    private String key;
     private String name;
     private String email;
     private String phoneNumber;
     private String address;
     private String password;
-    private double money;  // Thuộc tính money
-    private String role;   // Thuộc tính role
-    private String avatar; // Thuộc tính avatar
+    private double money;
+    private String role;
+    private String avatar;
 
-    // Constructor với key
     public Users(String key, String name, String email, String phoneNumber, String address, String password, double money, String role, String avatar) {
         this.key = key;
         this.name = name;
@@ -21,14 +20,13 @@ public class Users {
         this.password = password;
         this.money = money;
         this.role = role;
-        this.avatar = avatar; // Khởi tạo avatar
+        this.avatar = avatar;
     }
 
-    // Constructor mặc định cần thiết cho Firebase
     public Users() {
     }
 
-    // Getter và Setter cho key
+
     public String getKey() {
         return key;
     }
@@ -37,7 +35,7 @@ public class Users {
         this.key = key;
     }
 
-    // Getter và Setter cho các thuộc tính khác
+
     public String getName() {
         return name;
     }
@@ -78,7 +76,7 @@ public class Users {
         this.password = password;
     }
 
-    // Getter và Setter cho money
+
     public double getMoney() {
         return money;
     }
@@ -87,7 +85,7 @@ public class Users {
         this.money = money;
     }
 
-    // Getter và Setter cho role
+
     public String getRole() {
         return role;
     }
@@ -96,7 +94,7 @@ public class Users {
         this.role = role;
     }
 
-    // Getter và Setter cho avatar
+
     public String getAvatar() {
         return avatar;
     }
@@ -115,7 +113,7 @@ public class Users {
                 ", address='" + address + '\'' +
                 ", money=" + money +
                 ", role='" + role + '\'' +
-                ", avatar='" + avatar + '\'' + // Hiển thị avatar trong toString
+                ", avatar='" + avatar + '\'' +
                 '}';
     }
 }

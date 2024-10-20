@@ -26,12 +26,12 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_main); // Đảm bảo rằng tên layout là đúng
+        setContentView(R.layout.login_main);
 
         usernameEditText = findViewById(R.id.username);
         passwordEditText = findViewById(R.id.password);
         loginButton = findViewById(R.id.login_button);
-        registerTextView = findViewById(R.id.register_text_view); // Đảm bảo id đúng
+        registerTextView = findViewById(R.id.register_text_view);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,25 +83,25 @@ public class LoginActivity extends AppCompatActivity {
                     for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
                         Users user = userSnapshot.getValue(Users.class);
                         if (user != null && user.getPassword().equals(password)) {
-                            // Đăng nhập thành công
+
                             Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class); // Thay thế MainActivity bằng activity chính của bạn
                             startActivity(intent);
                             finish();
                         } else {
-                            // Sai mật khẩu
+
                             Toast.makeText(LoginActivity.this, "Sai mật khẩu", Toast.LENGTH_SHORT).show();
                         }
                     }
                 } else {
-                    // Không tìm thấy người dùng
+
                     Toast.makeText(LoginActivity.this, "Tài khoản không tồn tại", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Xử lý lỗi nếu cần
+
                 Toast.makeText(LoginActivity.this, "Lỗi kết nối", Toast.LENGTH_SHORT).show();
             }
         });
