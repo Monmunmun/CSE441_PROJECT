@@ -27,6 +27,7 @@
         <activity android:name=".RegisterActivity">
         </activity>
         <activity android:name=".UserActivity"></activity>
+        <activity android:name=".CategoryActivity"></activity>
     </application>
 
 </manifest>

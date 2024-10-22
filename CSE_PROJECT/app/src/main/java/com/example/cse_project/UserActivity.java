@@ -22,6 +22,7 @@ public class UserActivity extends AppCompatActivity {
                 logout();
             }
         });
+
         ImageView homeIcon = findViewById(R.id.mainactivity);
         homeIcon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,20 +31,27 @@ public class UserActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        // Thêm đoạn mã cho categoryIcon
+        ImageView categoryIcon = findViewById(R.id.categoryactivity);
+        categoryIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserActivity.this, CategoryActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void logout() {
-
         SharedPreferences sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
         editor.apply();
-
 
         Intent intent = new Intent(UserActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();
     }
 }
-
 

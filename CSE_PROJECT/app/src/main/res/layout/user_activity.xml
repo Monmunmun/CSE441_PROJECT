@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_image"> <!-- Hình nền ở trên cùng -->
+    android:background="@drawable/rounded_corner_background"> <!-- Hình nền ở trên cùng -->
 
     <!-- Phần thông tin người dùng: Avatar, Username, FullName -->
     <LinearLayout
@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="16dp"
+        android:background="@drawable/background_image"
         android:gravity="center_vertical">
 
         <ImageView
@@ -51,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/user_info_section"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:text="Chức Năng Người Dùng"
         android:textColor="#000000"
         android:textSize="16sp"
@@ -140,7 +141,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/user_functions_section"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:text="Hỗ Trợ Người Dùng"
         android:textColor="#040404"
         android:textSize="16sp"
@@ -152,7 +153,7 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_below="@id/user_functions_section"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/rounded_corner_background"
         android:orientation="vertical"
         android:padding="0dp">
@@ -220,10 +221,11 @@
             android:gravity="center">
 
             <ImageView
+                android:id="@+id/categoryactivity"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_category"
-                android:contentDescription="Danh mục" />
+                android:contentDescription="Danh mục"
+                android:src="@drawable/ic_category" />
 
             <TextView
                 android:layout_width="wrap_content"
