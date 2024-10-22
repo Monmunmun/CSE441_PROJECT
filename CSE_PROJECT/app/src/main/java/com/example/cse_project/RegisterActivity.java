@@ -15,7 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText usernameEditText, nameEditText, emailEditText, passwordEditText, confirmPasswordEditText;
+    private EditText usernameEditText, nameEditText, emailEditText, passwordEditText, confirmPasswordEditText,phoneNumberEditText;
     private Button registerButton;
     private TextView loginTextView;
 
@@ -31,6 +31,7 @@ public class RegisterActivity extends AppCompatActivity {
         confirmPasswordEditText = findViewById(R.id.confirm_password);
         registerButton = findViewById(R.id.register_button);
         loginTextView = findViewById(R.id.login_text_view);
+        phoneNumberEditText = findViewById(R.id.phone_number);
 
 
         registerButton.setOnClickListener(new View.OnClickListener() {
@@ -55,6 +56,7 @@ public class RegisterActivity extends AppCompatActivity {
         String username = usernameEditText.getText().toString();
         String name = nameEditText.getText().toString();
         String email = emailEditText.getText().toString();
+        String phoneNumber = phoneNumberEditText.getText().toString();
         String password = passwordEditText.getText().toString();
         String confirmPassword = confirmPasswordEditText.getText().toString();
 
@@ -63,8 +65,11 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
+        String defaultAddress = "";
+        String defaultAvatar = "https://cdn-icons-png.flaticon.com/512/1144/1144760.png";
+
         DatabaseReference userReference = FirebaseDatabase.getInstance().getReference("User").push();
-        Users user = new Users(userReference.getKey(), username, name, email, null, password, 0.0, "user", null);
+        Users user = new Users(userReference.getKey(), username, name, email, phoneNumber, defaultAddress, password, 0.0, "user", defaultAvatar);
 
         userReference.setValue(user).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {

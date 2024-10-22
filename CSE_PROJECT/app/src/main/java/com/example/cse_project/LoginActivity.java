@@ -36,44 +36,28 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Kiểm tra thông tin đăng nhập (cần thay đổi với logic xác thực của bạn)
-                String username = usernameEditText.getText().toString();
-                String password = passwordEditText.getText().toString();
-
-                // Nếu thông tin đăng nhập hợp lệ
-                if (isLoginValid(username, password)) {
-                    // Lưu trạng thái đăng nhập vào SharedPreferences
-                    SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putBoolean("isLoggedIn", true);
-                    editor.apply();
-
-                    // Chuyển hướng tới MainActivity
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    finish(); // Kết thúc LoginActivity để không trở lại
-                } else {
-                    // Xử lý thông tin đăng nhập không hợp lệ (hiển thị thông báo lỗi...)
-                }
+                login();
             }
         });
 
         registerTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class); // Thay thế RegisterActivity bằng tên activity bạn sử dụng cho đăng ký
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }
         });
-    }
-    private boolean isLoginValid(String username, String password) {
-
-        return true;
     }
 
     private void login() {
         String username = usernameEditText.getText().toString();
         String password = passwordEditText.getText().toString();
+
+        if (username.isEmpty() || password.isEmpty()) {
+            Toast.makeText(LoginActivity.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
 
         DatabaseReference userReference = FirebaseDatabase.getInstance().getReference("User");
         userReference.orderByChild("username").equalTo(username).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -82,10 +66,20 @@ public class LoginActivity extends AppCompatActivity {
                 if (dataSnapshot.exists()) {
                     for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
                         Users user = userSnapshot.getValue(Users.class);
+
                         if (user != null && user.getPassword().equals(password)) {
 
+                            SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putBoolean("isLoggedIn", true);
+                            editor.putString("username", username);
+                            editor.apply();
+
+
                             Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class); // Thay thế MainActivity bằng activity chính của bạn
+
+
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
                             finish();
                         } else {
@@ -107,4 +101,5 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 }
+
 

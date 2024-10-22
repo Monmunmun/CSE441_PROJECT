@@ -31,14 +31,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Khởi tạo RecyclerViews
+
         bestSellersRecyclerView = findViewById(R.id.top_best_sellers_list);
         newLiteratureRecyclerView = findViewById(R.id.new_literature_books_list);
 
         bestSellersRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         newLiteratureRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        // Khởi tạo danh sách và adapters
+
         bestSellersList = new ArrayList<>();
         newLiteratureList = new ArrayList<>();
         bestSellersAdapter = new BookAdapter(this, bestSellersList);
@@ -47,25 +47,25 @@ public class MainActivity extends AppCompatActivity {
         bestSellersRecyclerView.setAdapter(bestSellersAdapter);
         newLiteratureRecyclerView.setAdapter(newLiteratureAdapter);
 
-        // Kết nối tới Firebase
+
         databaseReference = FirebaseDatabase.getInstance().getReference("Book");
 
-        // Lấy dữ liệu từ Firebase
+
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 bestSellersList.clear();
-                newLiteratureList.clear(); // Xóa danh sách trước khi thêm mới
+                newLiteratureList.clear();
 
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Books book = postSnapshot.getValue(Books.class);
                     if (book != null) {
-                        bestSellersList.add(book); // Thêm sách vào danh sách sách bán chạy
-                        newLiteratureList.add(book); // Thêm sách vào danh sách sách văn học mới
+                        bestSellersList.add(book);
+                        newLiteratureList.add(book);
                     }
                 }
 
-                // Cập nhật cả hai adapter
+
                 bestSellersAdapter.notifyDataSetChanged();
                 newLiteratureAdapter.notifyDataSetChanged();
             }

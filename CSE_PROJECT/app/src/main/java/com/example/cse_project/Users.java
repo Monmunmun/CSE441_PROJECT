@@ -2,6 +2,7 @@ package com.example.cse_project;
 
 public class Users {
     private String key;
+    private String username;
     private String name;
     private String email;
     private String phoneNumber;
@@ -11,8 +12,10 @@ public class Users {
     private String role;
     private String avatar;
 
-    public Users(String key, String name, String email, String phoneNumber, String address, String password, double money, String role, String avatar) {
+
+    public Users(String key, String username, String name, String email, String phoneNumber, String address, String password, double money, String role, String avatar) {
         this.key = key;
+        this.username = username;
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
@@ -27,6 +30,15 @@ public class Users {
     }
 
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+ 
     public String getKey() {
         return key;
     }
@@ -34,7 +46,6 @@ public class Users {
     public void setKey(String key) {
         this.key = key;
     }
-
 
     public String getName() {
         return name;
@@ -76,7 +87,6 @@ public class Users {
         this.password = password;
     }
 
-
     public double getMoney() {
         return money;
     }
@@ -85,7 +95,6 @@ public class Users {
         this.money = money;
     }
 
-
     public String getRole() {
         return role;
     }
@@ -93,7 +102,6 @@ public class Users {
     public void setRole(String role) {
         this.role = role;
     }
-
 
     public String getAvatar() {
         return avatar;
@@ -107,6 +115,7 @@ public class Users {
     public String toString() {
         return "Users{" +
                 "key='" + key + '\'' +
+                ", username='" + username + '\'' +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
