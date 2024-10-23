@@ -44,7 +44,7 @@ public class UserActivity extends AppCompatActivity {
     }
 
     private void logout() {
-        SharedPreferences sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE); // Sử dụng tên này
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
         editor.apply();
@@ -54,4 +54,3 @@ public class UserActivity extends AppCompatActivity {
         finish();
     }
 }
-
