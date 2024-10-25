@@ -43,6 +43,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.bookPrice.setText("Price: $" + product.getPrice());
         holder.bookStock.setText("Stock: " + product.getStock());
 
+        // Tải hình ảnh sử dụng Picasso
         Picasso.get().load(product.getImageUrl()).into(holder.bookImage);
 
         holder.editButton.setOnClickListener(v -> listener.onEditClick(position));
@@ -52,6 +53,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     @Override
     public int getItemCount() {
         return productList.size();
+    }
+
+    public void removeItem(int position) {
+        productList.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, productList.size());
     }
 
     public static class ProductViewHolder extends RecyclerView.ViewHolder {

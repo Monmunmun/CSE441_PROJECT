@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Title Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#4CAF50"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="Quay lại"
+            android:src="@drawable/ic_back_page" />
+
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Chỉnh sửa sản phẩm"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:gravity="center"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <!-- Image Selection Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/imagePreview"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop" />
+
+        <Button
+            android:id="@+id/buttonSelectImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chọn ảnh từ thiết bị"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+
+    <!-- Title Input -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tên sản phẩm"
+        android:textSize="16sp"
+        android:paddingBottom="4dp"/>
+    <EditText
+        android:id="@+id/editTextTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập tên sản phẩm"
+        android:inputType="text" />
+
+    <!-- Author Input -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tác giả"
+        android:textSize="16sp"
+        android:paddingTop="8dp"
+        android:paddingBottom="4dp"/>
+    <EditText
+        android:id="@+id/editTextAuthor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập tên tác giả"
+        android:inputType="text" />
+
+    <!-- Price Input -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Giá"
+        android:textSize="16sp"
+        android:paddingTop="8dp"
+        android:paddingBottom="4dp"/>
+    <EditText
+        android:id="@+id/editTextPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập giá sản phẩm"
+        android:inputType="numberDecimal" />
+
+    <!-- Stock Input -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Số lượng"
+        android:textSize="16sp"
+        android:paddingTop="8dp"
+        android:paddingBottom="4dp"/>
+    <EditText
+        android:id="@+id/editTextStock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập số lượng"
+        android:inputType="number" />
+
+    <!-- Category Input -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Danh mục"
+        android:textSize="16sp"
+        android:paddingTop="8dp"
+        android:paddingBottom="4dp"/>
+    <EditText
+        android:id="@+id/editTextCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập danh mục sản phẩm"
+        android:inputType="text" />
+
+    <!-- Save Button -->
+    <Button
+        android:id="@+id/buttonSaveProduct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lưu sản phẩm"
+        android:layout_marginTop="16dp"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"/>
+</LinearLayout>

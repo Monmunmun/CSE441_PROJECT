@@ -92,11 +92,33 @@ public class ProductActivity extends AppCompatActivity implements ProductAdapter
 
     @Override
     public void onEditClick(int position) {
-        // Handle edit click event
+        Product product = productList.get(position);
+        Intent intent = new Intent(ProductActivity.this, EditProductActivity.class);
+        intent.putExtra("PRODUCT_ID", product.getKey());
+        intent.putExtra("TITLE", product.getTitle());
+        intent.putExtra("AUTHOR", product.getAuthor());
+        intent.putExtra("PRICE", String.valueOf(product.getPrice()));
+        intent.putExtra("STOCK", String.valueOf(product.getStock()));
+        intent.putExtra("CATEGORY", product.getCategory());
+        intent.putExtra("IMAGE_URL", product.getImageUrl());
+        startActivity(intent);
     }
 
     @Override
     public void onDeleteClick(int position) {
-        // Handle delete click event
+        Product product = productList.get(position);
+        String productId = product.getKey(); // Lấy ID sản phẩm để xóa
+
+        if (productId != null) {
+            // Xóa sản phẩm khỏi Firebase
+            databaseReference.child(productId).removeValue().addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    Toast.makeText(ProductActivity.this, "Sản phẩm đã được xóa", Toast.LENGTH_SHORT).show();
+                    productAdapter.removeItem(position); // Cập nhật danh sách sản phẩm
+                } else {
+                    Toast.makeText(ProductActivity.this, "Lỗi khi xóa sản phẩm", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 }

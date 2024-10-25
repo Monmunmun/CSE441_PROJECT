@@ -32,6 +32,7 @@
         <activity android:name=".AdminActivity"></activity>
         <activity android:name=".ProductActivity"></activity>
         <activity android:name=".AddProductActivity"></activity>
+        <activity android:name=".EditProductActivity"></activity>
 
     </application>
 
