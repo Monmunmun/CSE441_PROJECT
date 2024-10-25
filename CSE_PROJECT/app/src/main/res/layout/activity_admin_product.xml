@@ -32,6 +32,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addProductButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add_circle_outline_black_24dp"
+        android:contentDescription="Thêm sản phẩm"
+        app:layout_constraintBottom_toTopOf="@id/navigation_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"
+        app:tint="@android:color/white" />
+
     <!-- Thanh điều hướng dưới -->
     <LinearLayout
         android:id="@+id/navigation_layout"

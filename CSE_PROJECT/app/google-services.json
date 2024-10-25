@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "488746690356",
-    "project_id": "androidbookshop-73f71",
-    "storage_bucket": "androidbookshop-73f71.appspot.com"
+    "project_number": "406699416857",
+    "firebase_url": "https://bookshop-84835-default-rtdb.firebaseio.com",
+    "project_id": "bookshop-84835",
+    "storage_bucket": "bookshop-84835.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:488746690356:android:248a32495f71e0005de761",
+        "mobilesdk_app_id": "1:406699416857:android:d8982e85878b8ca7cf3988",
         "android_client_info": {
           "package_name": "com.example.cse_project"
         }
@@ -15,7 +16,45 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAypCJ0iwMkRXB7Zqwp7fSnl3A2yGAfqQY"
+          "current_key": "AIzaSyA0zhS6reHtJDjhJT1PhB5ZNuvtARHCIX8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:406699416857:android:d2cf63127b2d2ceacf3988",
+        "android_client_info": {
+          "package_name": "com.example.cse_project2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0zhS6reHtJDjhJT1PhB5ZNuvtARHCIX8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:406699416857:android:4d606c5e2ab8f2ffcf3988",
+        "android_client_info": {
+          "package_name": "com.example.cse_project3"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0zhS6reHtJDjhJT1PhB5ZNuvtARHCIX8"
         }
       ],
       "services": {

@@ -35,6 +35,7 @@ android {
 
 dependencies {
     implementation("com.google.firebase:firebase-database")
+    implementation("com.google.firebase:firebase-storage:21.0.1")
 
     implementation(libs.appcompat)
     implementation(libs.material)
