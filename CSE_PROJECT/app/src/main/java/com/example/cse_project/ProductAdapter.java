@@ -43,7 +43,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.bookPrice.setText("Price: $" + product.getPrice());
         holder.bookStock.setText("Stock: " + product.getStock());
 
-        // Tải hình ảnh sử dụng Picasso
         Picasso.get().load(product.getImageUrl()).into(holder.bookImage);
 
         holder.editButton.setOnClickListener(v -> listener.onEditClick(position));

@@ -33,7 +33,6 @@ public class ProductActivity extends AppCompatActivity implements ProductAdapter
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_product);
 
-        // Setup RecyclerView
         productRecyclerView = findViewById(R.id.productRecyclerView);
         productRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -85,7 +84,7 @@ public class ProductActivity extends AppCompatActivity implements ProductAdapter
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                // Handle database error if necessary
+
             }
         });
     }
