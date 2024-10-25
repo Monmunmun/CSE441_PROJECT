@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 public class EditProductActivity extends AppCompatActivity {
@@ -24,7 +26,8 @@ public class EditProductActivity extends AppCompatActivity {
     private Uri imageUri;
 
     private DatabaseReference databaseReference;
-    private String productId;
+    private StorageReference storageReference;
+    private String productId, currentImageUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,37 +47,32 @@ public class EditProductActivity extends AppCompatActivity {
         // Nhận dữ liệu sản phẩm từ Intent
         Intent intent = getIntent();
         productId = intent.getStringExtra("PRODUCT_ID");
-        String title = intent.getStringExtra("TITLE");
-        String author = intent.getStringExtra("AUTHOR");
-        String price = intent.getStringExtra("PRICE");
-        String stock = intent.getStringExtra("STOCK");
-        String category = intent.getStringExtra("CATEGORY");
-        String imageUrl = intent.getStringExtra("IMAGE_URL");
+        currentImageUrl = intent.getStringExtra("IMAGE_URL");
+        editTextTitle.setText(intent.getStringExtra("TITLE"));
+        editTextAuthor.setText(intent.getStringExtra("AUTHOR"));
+        editTextPrice.setText(intent.getStringExtra("PRICE"));
+        editTextStock.setText(intent.getStringExtra("STOCK"));
+        editTextCategory.setText(intent.getStringExtra("CATEGORY"));
 
-        // Điền dữ liệu vào các trường nhập liệu
-        editTextTitle.setText(title);
-        editTextAuthor.setText(author);
-        editTextPrice.setText(price);
-        editTextStock.setText(stock);
-        editTextCategory.setText(category);
-        Picasso.get().load(imageUrl).into(imagePreview);
+        // Hiển thị hình ảnh hiện tại
+        Picasso.get().load(currentImageUrl).into(imagePreview);
 
-        // Thiết lập Firebase Database
+        // Khởi tạo Firebase Database và Storage
         databaseReference = FirebaseDatabase.getInstance().getReference("Book");
+        storageReference = FirebaseStorage.getInstance().getReference("images");
 
-        // Xử lý sự kiện nhấn nút chọn hình ảnh
+        // Xử lý sự kiện chọn hình ảnh
         buttonSelectImage.setOnClickListener(v -> {
-            // Mở trình chọn hình ảnh
             Intent intentImage = new Intent();
             intentImage.setType("image/*");
             intentImage.setAction(Intent.ACTION_GET_CONTENT);
             startActivityForResult(Intent.createChooser(intentImage, "Chọn hình ảnh"), 1);
         });
 
-        // Xử lý sự kiện nhấn nút lưu sản phẩm
+        // Xử lý sự kiện lưu sản phẩm
         buttonSaveProduct.setOnClickListener(v -> saveProduct());
 
-        // Thiết lập sự kiện quay lại
+        // Quay lại
         ImageView backButton = findViewById(R.id.back_button);
         backButton.setOnClickListener(v -> finish());
     }
@@ -92,37 +90,40 @@ public class EditProductActivity extends AppCompatActivity {
             return;
         }
 
-        // Kiểm tra stock
+        // Kiểm tra stock và price
         int stockValue;
-        try {
-            stockValue = Integer.parseInt(stock);
-        } catch (NumberFormatException e) {
-            Toast.makeText(this, "Số lượng không hợp lệ", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        // Kiểm tra price
         double priceValue;
         try {
+            stockValue = Integer.parseInt(stock);
             priceValue = Double.parseDouble(price);
         } catch (NumberFormatException e) {
-            Toast.makeText(this, "Giá không hợp lệ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Giá hoặc số lượng không hợp lệ", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Kiểm tra imageUri
-        String imageUrl = (imageUri != null) ? imageUri.toString() : null;
-        if (imageUrl == null) {
-            Toast.makeText(this, "Vui lòng chọn hình ảnh", Toast.LENGTH_SHORT).show();
-            return;
+        // Nếu có ảnh mới, tải lên Storage
+        if (imageUri != null) {
+            StorageReference fileReference = storageReference.child(System.currentTimeMillis() + ".jpg");
+            fileReference.putFile(imageUri).addOnSuccessListener(taskSnapshot ->
+                    fileReference.getDownloadUrl().addOnSuccessListener(uri -> {
+                        String newImageUrl = uri.toString();
+                        updateProductInDatabase(newImageUrl, title, author, priceValue, stockValue, category);
+                    })
+            ).addOnFailureListener(e ->
+                    Toast.makeText(EditProductActivity.this, "Lỗi khi tải ảnh lên: " + e.getMessage(), Toast.LENGTH_SHORT).show()
+            );
+        } else {
+            // Nếu không có ảnh mới, dùng URL ảnh cũ
+            updateProductInDatabase(currentImageUrl, title, author, priceValue, stockValue, category);
         }
+    }
 
-        // Cập nhật dữ liệu sản phẩm trong Firebase
-        Product product = new Product(productId, title, author, priceValue, imageUrl, stockValue, category);;
+    private void updateProductInDatabase(String imageUrl, String title, String author, double price, int stock, String category) {
+        Product product = new Product(productId, title, author, price, imageUrl, stock, category);
         databaseReference.child(productId).setValue(product).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 Toast.makeText(EditProductActivity.this, "Sản phẩm đã được cập nhật", Toast.LENGTH_SHORT).show();
-                finish(); // Quay lại màn hình trước
+                finish();
             } else {
                 Toast.makeText(EditProductActivity.this, "Lỗi khi cập nhật sản phẩm", Toast.LENGTH_SHORT).show();
             }
@@ -134,7 +135,7 @@ public class EditProductActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData() != null) {
             imageUri = data.getData();
-            imagePreview.setImageURI(imageUri); // Hiển thị hình ảnh đã chọn
+            imagePreview.setImageURI(imageUri); // Hiển thị hình ảnh mới đã chọn
         }
     }
 }

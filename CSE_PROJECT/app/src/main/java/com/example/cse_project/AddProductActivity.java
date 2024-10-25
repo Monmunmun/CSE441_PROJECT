@@ -26,6 +26,7 @@ public class AddProductActivity extends AppCompatActivity {
     private StorageReference storageReference;
     private DatabaseReference databaseReference;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +42,7 @@ public class AddProductActivity extends AppCompatActivity {
         Button buttonSelectImage = findViewById(R.id.buttonSelectImage);
         Button buttonSaveProduct = findViewById(R.id.buttonSaveProduct);
         ImageView backButton = findViewById(R.id.back_button);
+
 
         // Khởi tạo Firebase references
         storageReference = FirebaseStorage.getInstance().getReference("images");
