@@ -1,89 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="0dp">
+    android:layout_height="match_parent">
 
-    <!-- Search Bar -->
     <LinearLayout
-        android:id="@+id/search_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#146918"
-        android:orientation="horizontal"
-        android:padding="5dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="0dp"
+        android:layout_above="@+id/bottom_navigation">
 
-        <EditText
-            android:id="@+id/search_input"
-            android:layout_width="0dp"
+        <!-- Search Bar -->
+        <LinearLayout
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/rounded_edittext"
-            android:hint="Nhập từ khóa tìm kiếm"
-            android:padding="10dp"
-            android:textColor="#000000"
-            android:textSize="16sp"/>
+            android:background="#146918"
+            android:orientation="horizontal"
+            android:padding="5dp">
 
-        <ImageButton
-            android:id="@+id/search_button"
+            <EditText
+                android:id="@+id/search_input"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_edittext"
+                android:hint="Nhập từ khóa tìm kiếm"
+                android:padding="10dp"
+                android:textColor="#000000"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+        <!-- Banner Image -->
+        <ImageView
+            android:id="@+id/banner_image"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/backgroud_main"
+            android:scaleType="centerCrop" />
+
+        <!-- Top Bán Chạy -->
+        <TextView
+            android:id="@+id/top_best_sellers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackgroundBorderless"/>
+            android:text="TOP Bán Chạy Tháng 10/2024"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingTop="10dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/top_best_sellers_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:scrollbars="horizontal" />
+
+        <TextView
+            android:id="@+id/new_literature_books"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sách Văn Học Mới"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingTop="10dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/new_literature_books_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:scrollbars="horizontal" />
     </LinearLayout>
-
-    <!-- Banner Image -->
-    <ImageView
-        android:id="@+id/banner_image"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:src="@drawable/backgroud_main"
-        android:scaleType="centerCrop" />
-
-    <!-- Top Bán Chạy -->
-    <TextView
-        android:id="@+id/top_best_sellers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TOP Bán Chạy Tháng 10/2024"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:paddingTop="10dp" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/top_best_sellers_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="5dp"
-        android:scrollbars="horizontal" />
-
-    <TextView
-        android:id="@+id/new_literature_books"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sách Văn Học Mới"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:paddingTop="10dp" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/new_literature_books_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="5dp"
-        android:scrollbars="horizontal" />
 
     <!-- Bottom Navigation -->
     <LinearLayout
+        android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:orientation="horizontal"
         android:weightSum="5"
         android:background="#E0E0E0"
-        android:padding="8dp">
+        android:padding="8dp"
+        android:layout_alignParentBottom="true">
 
         <!-- Trang chủ -->
         <LinearLayout
@@ -197,6 +199,5 @@
                 android:textSize="12sp"
                 android:textColor="@android:color/black" />
         </LinearLayout>
-
     </LinearLayout>
-</LinearLayout>
+</RelativeLayout>

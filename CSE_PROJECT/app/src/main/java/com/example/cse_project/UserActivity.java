@@ -48,6 +48,12 @@ public class UserActivity extends AppCompatActivity {
         Button logoutButton = findViewById(R.id.logout_button);
         logoutButton.setOnClickListener(v -> logout());
 
+        Button accountInfoButton = findViewById(R.id.account_info_button);
+        accountInfoButton.setOnClickListener(v -> {
+            Intent intent = new Intent(UserActivity.this, ProfileActivity.class);
+            startActivity(intent);
+        });
+
         ImageView homeIcon = findViewById(R.id.mainactivity);
         homeIcon.setOnClickListener(v -> startActivity(new Intent(UserActivity.this, MainActivity.class)));
 

@@ -8,10 +8,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -60,24 +64,47 @@ public class RegisterActivity extends AppCompatActivity {
         String password = passwordEditText.getText().toString();
         String confirmPassword = confirmPasswordEditText.getText().toString();
 
+        if (username.isEmpty() || name.isEmpty() || email.isEmpty() || phoneNumber.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+            Toast.makeText(RegisterActivity.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         if (!password.equals(confirmPassword)) {
             Toast.makeText(RegisterActivity.this, "Vui lòng nhập đúng mật khẩu", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        String defaultAddress = "";
-        String defaultAvatar = "https://cdn-icons-png.flaticon.com/512/1144/1144760.png";
+        DatabaseReference userReference = FirebaseDatabase.getInstance().getReference("User");
+        userReference.orderByChild("username").equalTo(username).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
 
-        DatabaseReference userReference = FirebaseDatabase.getInstance().getReference("User").push();
-        Users user = new Users(userReference.getKey(), username, name, email, phoneNumber, defaultAddress, password, 0.0, "user", defaultAvatar);
+                    Toast.makeText(RegisterActivity.this, "Tên đăng nhập đã được sử dụng", Toast.LENGTH_SHORT).show();
+                } else {
 
-        userReference.setValue(user).addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                Toast.makeText(RegisterActivity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
-                finish();
-            } else {
-                Toast.makeText(RegisterActivity.this, "Đăng ký thất bại", Toast.LENGTH_SHORT).show();
+                    String defaultAddress = "";
+                    String defaultAvatar = "https://cdn-icons-png.flaticon.com/512/1144/1144760.png";
+
+                    DatabaseReference newUserRef = userReference.push();
+                    Users user = new Users(newUserRef.getKey(), username, name, email, phoneNumber, defaultAddress, password, 0.0, "user", defaultAvatar);
+
+                    newUserRef.setValue(user).addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(RegisterActivity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
+                            finish();
+                        } else {
+                            Toast.makeText(RegisterActivity.this, "Đăng ký thất bại", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(RegisterActivity.this, "Lỗi khi kiểm tra tên đăng nhập", Toast.LENGTH_SHORT).show();
             }
         });
     }
+
 }
