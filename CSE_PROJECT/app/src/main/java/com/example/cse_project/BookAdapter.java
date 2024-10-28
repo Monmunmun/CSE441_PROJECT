@@ -1,6 +1,7 @@
 package com.example.cse_project;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +38,16 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         holder.title.setText(book.getTitle());
         holder.price.setText(String.valueOf(book.getPrice()) + " VND");
         Picasso.get().load(book.getImageUrl()).into(holder.image);
+
+        holder.image.setOnClickListener(v -> {
+            Intent intent = new Intent(context, BookDetailActivity.class);
+            intent.putExtra("imageUrl", book.getImageUrl());
+            intent.putExtra("title", book.getTitle());
+            intent.putExtra("author", book.getAuthor());
+            intent.putExtra("price", String.valueOf(book.getPrice()));
+            intent.putExtra("key", book.getKey());
+            context.startActivity(intent);
+        });
     }
 
     @Override

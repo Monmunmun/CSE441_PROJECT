@@ -97,10 +97,11 @@
             android:gravity="center">
 
             <ImageView
+                android:id="@+id/cartactivity"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_cart"
-                android:contentDescription="Giỏ hàng" />
+                android:contentDescription="Giỏ hàng"
+                android:src="@drawable/ic_cart" />
 
             <TextView
                 android:layout_width="wrap_content"

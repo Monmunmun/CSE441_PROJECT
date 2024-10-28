@@ -47,6 +47,10 @@ public class CategoryActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        ImageView cartIcon = findViewById(R.id.cartactivity);
+        cartIcon.setOnClickListener(v -> startActivity(new Intent(CategoryActivity.this, CartActivity.class)));
+
     }
 
 }

@@ -59,6 +59,11 @@ public class UserActivity extends AppCompatActivity {
 
         ImageView categoryIcon = findViewById(R.id.categoryactivity);
         categoryIcon.setOnClickListener(v -> startActivity(new Intent(UserActivity.this, CategoryActivity.class)));
+
+        ImageView cartIcon = findViewById(R.id.cartactivity); // ID của ImageView giỏ hàng
+        cartIcon.setOnClickListener(v -> startActivity(new Intent(UserActivity.this, CartActivity.class)));
+
+
     }
 
     private void loadUserData(String username) {
