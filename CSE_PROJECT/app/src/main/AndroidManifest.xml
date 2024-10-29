@@ -36,6 +36,7 @@
         <activity android:name=".ProfileActivity"></activity>
         <activity android:name=".BookDetailActivity"></activity>
         <activity android:name=".CartActivity"></activity>
+        <activity android:name=".NotiActivity"></activity>
 
     </application>
 

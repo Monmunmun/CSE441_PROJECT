@@ -63,6 +63,11 @@ public class UserActivity extends AppCompatActivity {
         ImageView cartIcon = findViewById(R.id.cartactivity); // ID của ImageView giỏ hàng
         cartIcon.setOnClickListener(v -> startActivity(new Intent(UserActivity.this, CartActivity.class)));
 
+        Button notificationsButton = findViewById(R.id.notifications_button);
+        notificationsButton.setOnClickListener(v -> {
+            Intent intent = new Intent(UserActivity.this, NotiActivity.class);
+            startActivity(intent);
+        });
 
     }
 
