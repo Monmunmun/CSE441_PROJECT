@@ -1,74 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="0dp">
+    tools:context=".AdminNotiActivity">
 
-    <!-- Tiêu đề của giỏ hàng -->
-    <LinearLayout
-        android:layout_width="match_parent"
+    <!-- Phần tiêu đề -->
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:text="Quản Lý Thông Báo"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:gravity="center"
         android:background="#4CAF50"
-        android:padding="16dp">
-        <TextView
-            android:id="@+id/cartTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Giỏ hàng"
-            android:textColor="@android:color/white"
-            android:textSize="24sp"
-            android:gravity="center"
-            android:layout_weight="1" />
-    </LinearLayout>
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- RecyclerView để hiển thị danh sách sản phẩm -->
+    <!-- RecyclerView để hiển thị danh sách thông báo -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/cartRecyclerView"
-        android:layout_width="match_parent"
+        android:id="@+id/notificationRecyclerView"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:background="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView"
+        app:layout_constraintBottom_toTopOf="@id/navigation_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Tổng giá và nút Thanh Toán -->
-    <LinearLayout
-        android:layout_width="match_parent"
+    <!-- FloatingActionButton để thêm thông báo -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addNotificationButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:paddingTop="16dp">
+        android:src="@drawable/ic_add_circle_outline_black_24dp"
+        android:contentDescription="Thêm thông báo"
+        app:layout_constraintBottom_toTopOf="@id/navigation_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"
+        app:tint="@android:color/white" />
 
-        <!-- Hiển thị tổng giá -->
-        <TextView
-            android:id="@+id/totalPrice"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Tổng: 0 VND"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
-
-        <!-- Nút Thanh toán -->
-        <Button
-            android:id="@+id/checkoutButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Thanh Toán"
-            android:backgroundTint="#8BC34A"
-            android:textColor="@android:color/white"/>
-    </LinearLayout>
+    <!-- Thanh điều hướng dưới -->
     <LinearLayout
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
+        android:id="@+id/navigation_layout"
+        android:layout_width="0dp"
         android:layout_height="55dp"
         android:orientation="horizontal"
         android:weightSum="5"
         android:background="#E0E0E0"
         android:padding="8dp"
-        android:layout_alignParentBottom="true">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Trang chủ -->
+        <!-- Nút Doanh Thu -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -77,21 +67,21 @@
             android:gravity="center">
 
             <ImageView
-                android:id="@+id/mainactivity"
+                android:id="@+id/revenue"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:contentDescription="Trang chủ"
-                android:src="@drawable/ic_home" />
+                android:contentDescription="Doanh thu"
+                android:src="@drawable/ic_doanh_thu" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Trang chủ"
+                android:text="Doanh thu"
                 android:textSize="12sp"
                 android:textColor="@android:color/black" />
         </LinearLayout>
 
-        <!-- Danh mục -->
+        <!-- Nút Sản Phẩm -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -100,21 +90,21 @@
             android:gravity="center">
 
             <ImageView
-                android:id="@+id/categoryactivity"
+                android:id="@+id/product"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:contentDescription="Danh mục"
-                android:src="@drawable/ic_category" />
+                android:contentDescription="Sản phẩm"
+                android:src="@drawable/ic_san_pham" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Danh mục"
+                android:text="Sản phẩm"
                 android:textSize="12sp"
                 android:textColor="@android:color/black" />
         </LinearLayout>
 
-        <!-- Giỏ hàng -->
+        <!-- Nút Đơn Hàng -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -123,20 +113,21 @@
             android:gravity="center">
 
             <ImageView
+                android:id="@+id/order"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_cart"
-                android:contentDescription="Giỏ hàng" />
+                android:contentDescription="Đơn hàng"
+                android:src="@drawable/ic_don_hang" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Giỏ hàng"
+                android:text="Đơn hàng"
                 android:textSize="12sp"
                 android:textColor="@android:color/black" />
         </LinearLayout>
 
-        <!-- Hỗ trợ -->
+        <!-- Nút Khách Hàng -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -145,20 +136,21 @@
             android:gravity="center">
 
             <ImageView
+                android:id="@+id/customer"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_help"
-                android:contentDescription="Hỗ trợ" />
+                android:contentDescription="Khách hàng"
+                android:src="@drawable/ic_khach_hang" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hỗ trợ"
+                android:text="Khách hàng"
                 android:textSize="12sp"
                 android:textColor="@android:color/black" />
         </LinearLayout>
 
-        <!-- Cá nhân -->
+        <!-- Nút Thông Báo -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -167,19 +159,20 @@
             android:gravity="center">
 
             <ImageView
-                android:id="@+id/useractivity"
+                android:id="@+id/notification"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:contentDescription="Cá nhân"
-                android:src="@drawable/ic_profile" />
+                android:contentDescription="Thông báo"
+                android:src="@drawable/ic_thong_bao" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cá nhân"
+                android:text="Thông báo"
                 android:textSize="12sp"
                 android:textColor="@android:color/black" />
         </LinearLayout>
+
     </LinearLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

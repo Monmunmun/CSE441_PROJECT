@@ -1,61 +1,84 @@
 package com.example.cse_project;
 
 public class Cart {
-    private String title;
-    private String imageUrl;
-    private int price;
-    private int quantity;
-    private long timestamp;
+    private String bookId;
+    private String bookImage;
+    private String bookTitle;
+    private int totalQuantity;
+    private double totalPrice;
 
-    public Cart() {}
 
-    // Constructor
-    public Cart(String title, String imageUrl, int price, int quantity, long timestamp) {
-        this.title = title;
-        this.imageUrl = imageUrl;
-        this.price = price;
-        this.quantity = quantity;
-        this.timestamp = timestamp;
+  
+    public Cart() {
     }
 
-    // Getter và Setter cho từng thuộc tính
-    public String getTitle() {
-        return title;
+
+    public Cart(String bookId, String bookImage, String bookTitle, int totalQuantity, double totalPrice) {
+        this.bookId = bookId;
+        this.bookImage = bookImage;
+        this.bookTitle = bookTitle;
+        this.totalQuantity = totalQuantity;
+        this.totalPrice = totalPrice;
+
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    // Getters và Setters
+    public String getBookId() {
+        return bookId;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public void setBookId(String bookId) {
+        this.bookId = bookId;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public String getBookImage() {
+        return bookImage;
     }
 
-    public int getPrice() {
-        return price;
+    public void setBookImage(String bookImage) {
+        this.bookImage = bookImage;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public String getBookTitle() {
+        return bookTitle;
+    }
+
+    public void setBookTitle(String bookTitle) {
+        this.bookTitle = bookTitle;
+    }
+
+    public int getTotalQuantity() {
+        return totalQuantity;
+    }
+
+    public void setTotalQuantity(int totalQuantity) {
+        this.totalQuantity = totalQuantity;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
     public int getQuantity() {
-        return quantity;
+        return totalQuantity;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public double getPrice() {
+        return totalPrice;
     }
 
-    public long getTimestamp() {
-        return timestamp;
+    public String getImageUrl() {
+        return bookImage;
     }
 
-    public void setTimestamp(long timestamp) {
-        this.timestamp = timestamp;
+    public String getTitle() {
+        return bookTitle;
+    }
+    public double getPricePerItem() {
+        return totalQuantity > 0 ? totalPrice / totalQuantity : 0;
     }
 }

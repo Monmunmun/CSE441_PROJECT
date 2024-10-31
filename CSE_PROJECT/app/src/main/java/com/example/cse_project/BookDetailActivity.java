@@ -25,12 +25,14 @@ public class BookDetailActivity extends AppCompatActivity {
     private Button addToCartButton;
 
     private DatabaseReference cartReference;
+    private String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.book_detail_activity);
 
+        // Ánh xạ các view
         bookImageView = findViewById(R.id.book_image);
         titleTextView = findViewById(R.id.book_title);
         authorTextView = findViewById(R.id.book_author);
@@ -38,48 +40,48 @@ public class BookDetailActivity extends AppCompatActivity {
         backButton = findViewById(R.id.back_button);
         addToCartButton = findViewById(R.id.addtocartbutton);
 
+
         backButton.setOnClickListener(v -> finish());
 
-        // Nhận dữ liệu từ Intent
+
         Intent intent = getIntent();
         String imageUrl = intent.getStringExtra("imageUrl");
         String title = intent.getStringExtra("title");
         String author = intent.getStringExtra("author");
         String price = intent.getStringExtra("price");
-        String bookKey = intent.getStringExtra("key"); // Nhận key từ Books
+        String bookKey = intent.getStringExtra("key");
 
-        // Hiển thị dữ liệu
+
         titleTextView.setText(title);
         authorTextView.setText("Tác giả: " + author);
         priceTextView.setText("Giá: " + price + " VND");
         Picasso.get().load(imageUrl).into(bookImageView);
 
-        // Khởi tạo Firebase DatabaseReference cho giỏ hàng
-        SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
-        String username = sharedPreferences.getString("username", null); // Lấy username từ SharedPreferences
-        cartReference = FirebaseDatabase.getInstance().getReference("Cart").child(username); // Tạo cấu trúc giỏ hàng theo username
 
-        // Xử lý sự kiện cho nút "Cho vào giỏ hàng"
-        addToCartButton.setOnClickListener(v -> addToCart(bookKey, title, imageUrl, Integer.parseInt(price)));
+        SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
+        username = sharedPreferences.getString("username", "default_username");
+
+
+        cartReference = FirebaseDatabase.getInstance().getReference("carts").child(username);
+
+
+        addToCartButton.setOnClickListener(v -> {
+            addToCart(imageUrl, title, Double.parseDouble(price), bookKey);
+        });
     }
 
-    private void addToCart(String bookKey, String title, String imageUrl, int price) {
-        if (title == null || imageUrl == null || price <= 0) {
-            Toast.makeText(BookDetailActivity.this, "Thông tin sản phẩm không đầy đủ!", Toast.LENGTH_SHORT).show();
-            return;
-        }
 
-        // Tạo một đối tượng Cart
-        Cart cartItem = new Cart(title, imageUrl, price, 1, System.currentTimeMillis());
+    private void addToCart(String imageUrl, String title, double price, String bookId) {
 
-        // Lưu vào Firebase với key của Book
-        cartReference.child(bookKey).setValue(cartItem)
+        Cart cartItem = new Cart(bookId, imageUrl, title, 1, price);
+
+
+        cartReference.child("items").child(bookId).setValue(cartItem)
                 .addOnSuccessListener(aVoid -> {
-                    Toast.makeText(BookDetailActivity.this, "Đã thêm vào giỏ hàng!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Thêm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show();
                 })
                 .addOnFailureListener(e -> {
-                    Log.e("BookDetailActivity", "Error adding to cart: ", e);
-                    Toast.makeText(BookDetailActivity.this, "Lỗi khi thêm vào giỏ hàng!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Lỗi khi thêm vào giỏ hàng", Toast.LENGTH_SHORT).show();
                 });
     }
 }

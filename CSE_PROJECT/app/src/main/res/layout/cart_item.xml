@@ -39,11 +39,49 @@
             android:textSize="14sp"
             android:textColor="@android:color/holo_red_dark"/>
 
-        <TextView
-            android:id="@+id/cartItemQuantity"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Số lượng: 1"
-            android:textSize="14sp"/>
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- Nút giảm số lượng -->
+            <ImageButton
+                android:id="@+id/decreaseButton"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="Giảm số lượng"
+                android:padding="4dp"
+                android:src="@drawable/ic_minus" />
+
+            <TextView
+                android:id="@+id/cartItemQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Số lượng: 1"
+                android:textSize="14sp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"/>
+
+            <!-- Nút tăng số lượng -->
+            <ImageButton
+                android:id="@+id/increaseButton"
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="Tăng số lượng"
+                android:padding="4dp"
+                android:src="@drawable/ic_plus" />
+        </LinearLayout>
     </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/removeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_delete"
+        android:contentDescription="Xóa sản phẩm"
+        android:background="?attr/selectableItemBackground"
+        android:layout_marginStart="8dp"/>
 </LinearLayout>
