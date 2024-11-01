@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,19 +27,22 @@ public class MainActivity extends AppCompatActivity {
     BookAdapter bestSellersAdapter, newLiteratureAdapter;
     List<Books> bestSellersList, newLiteratureList;
     DatabaseReference databaseReference;
+    EditText searchInput;
+    Button searchButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         bestSellersRecyclerView = findViewById(R.id.top_best_sellers_list);
         newLiteratureRecyclerView = findViewById(R.id.new_literature_books_list);
 
+        searchInput = findViewById(R.id.search_input);
+        searchButton = findViewById(R.id.search_button);
+
         bestSellersRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         newLiteratureRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-
 
         bestSellersList = new ArrayList<>();
         newLiteratureList = new ArrayList<>();
@@ -47,9 +52,7 @@ public class MainActivity extends AppCompatActivity {
         bestSellersRecyclerView.setAdapter(bestSellersAdapter);
         newLiteratureRecyclerView.setAdapter(newLiteratureAdapter);
 
-
         databaseReference = FirebaseDatabase.getInstance().getReference("Book");
-
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -64,8 +67,6 @@ public class MainActivity extends AppCompatActivity {
                         newLiteratureList.add(book);
                     }
                 }
-
-
                 bestSellersAdapter.notifyDataSetChanged();
                 newLiteratureAdapter.notifyDataSetChanged();
             }
@@ -85,31 +86,29 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+        searchButton.setOnClickListener(v -> {
+            String keyword = searchInput.getText().toString().trim();
+            Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+            intent.putExtra("keyword", keyword);
+            startActivity(intent);
+        });
+
         ImageView userProfile = findViewById(R.id.useractivity);
-        userProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, UserActivity.class);
-                startActivity(intent);
-            }
+        userProfile.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, UserActivity.class);
+            startActivity(intent);
         });
 
         ImageView categoryIcon = findViewById(R.id.categoryactivity);
-        categoryIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
-                startActivity(intent);
-            }
+        categoryIcon.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
+            startActivity(intent);
         });
 
         ImageView cartIcon = findViewById(R.id.cartactivity);
-        cartIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CartActivity.class);
-                startActivity(intent);
-            }
+        cartIcon.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, CartActivity.class);
+            startActivity(intent);
         });
 
         ImageView helpIcon = findViewById(R.id.hotro);

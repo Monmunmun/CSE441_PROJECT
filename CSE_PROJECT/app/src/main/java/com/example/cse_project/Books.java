@@ -9,6 +9,7 @@ public class Books {
     private int stock;
     private String category;
 
+
     public Books(String key, String title, String author, double price, String imageUrl, int stock, String category) {
         this.key = key;
         this.title = title;

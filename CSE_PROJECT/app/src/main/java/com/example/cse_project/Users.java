@@ -12,6 +12,9 @@ public class Users {
     private String role;
     private String avatar;
 
+    public Users() {
+
+    }
 
     public Users(String key, String username, String name, String email, String phoneNumber, String address, String password, double money, String role, String avatar) {
         this.key = key;

@@ -2,21 +2,19 @@ package com.example.cse_project;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
+
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
+
 
 import androidx.appcompat.app.AppCompatActivity;
+
 
 public class CategoryActivity extends AppCompatActivity {
 
     private ListView categoryListView;
-    private String[] categories = {"Sách bán chạy", "Sách mới phát hành",
-            "Sách sắp phát hành", "Hài hước", "Sách ngoại văn", "Sách kinh tế"};
+    private String[] categories = {"Tình yêu", "Hài hước", "Kinh dị", "Kì lạ", "Nông nghiệp", "Kinh tế", "Giải trí"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,31 +27,24 @@ public class CategoryActivity extends AppCompatActivity {
         categoryListView.setAdapter(adapter);
 
 
-        ImageView userProfile = findViewById(R.id.useractivity);
-        userProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CategoryActivity.this, UserActivity.class);
-                startActivity(intent);
-            }
+        categoryListView.setOnItemClickListener((parent, view, position, id) -> {
+
+            String selectedCategory = categories[position];
+            Intent intent = new Intent(CategoryActivity.this, CategoryBookActivity.class);
+            intent.putExtra("category", selectedCategory);
+            startActivity(intent);
         });
 
+        ImageView userProfile = findViewById(R.id.useractivity);
+        userProfile.setOnClickListener(v -> startActivity(new Intent(CategoryActivity.this, UserActivity.class)));
 
         ImageView homeIcon = findViewById(R.id.mainactivity);
-        homeIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CategoryActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
+        homeIcon.setOnClickListener(v -> startActivity(new Intent(CategoryActivity.this, MainActivity.class)));
 
         ImageView cartIcon = findViewById(R.id.cartactivity);
         cartIcon.setOnClickListener(v -> startActivity(new Intent(CategoryActivity.this, CartActivity.class)));
 
         ImageView helpIcon = findViewById(R.id.hotro);
         helpIcon.setOnClickListener(v -> startActivity(new Intent(CategoryActivity.this, HelpActivity.class)));
-
     }
-
 }

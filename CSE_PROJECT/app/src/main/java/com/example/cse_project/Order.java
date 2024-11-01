@@ -11,7 +11,8 @@ public class Order {
     private List<OrderItem> items;
     private String shippingAddress;
 
-
+    public Order() {
+    }
 
     public Order(String orderId, String userId, double totalAmount, String orderDate, String status, List<OrderItem> items, String shippingAddress) {
         this.orderId = orderId;

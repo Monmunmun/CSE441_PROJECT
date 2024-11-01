@@ -37,6 +37,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         Books book = booksList.get(position);
         holder.title.setText(book.getTitle());
         holder.price.setText(String.valueOf(book.getPrice()) + " VND");
+
         Picasso.get().load(book.getImageUrl()).into(holder.image);
 
         holder.image.setOnClickListener(v -> {
@@ -46,6 +47,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
             intent.putExtra("author", book.getAuthor());
             intent.putExtra("price", String.valueOf(book.getPrice()));
             intent.putExtra("key", book.getKey());
+            intent.putExtra("category", book.getCategory());
             context.startActivity(intent);
         });
     }

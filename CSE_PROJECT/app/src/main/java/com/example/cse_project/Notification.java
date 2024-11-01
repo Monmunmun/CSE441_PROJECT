@@ -5,7 +5,11 @@ public class Notification {
     private String notificationName;
     private String noticeDescription;
 
-    // Constructor
+
+    public Notification() {
+
+    }
+
     public Notification(String notiKey, String notificationName, String noticeDescription) {
         this.notiKey = notiKey;
         this.notificationName = notificationName;

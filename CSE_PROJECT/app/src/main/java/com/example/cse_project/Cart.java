@@ -7,6 +7,10 @@ public class Cart {
     private double pricePerItem;
     private double totalPrice;
 
+    public Cart() {
+
+    }
+
 
     public Cart(String bookId, String bookImage, String bookTitle, int totalQuantity, double pricePerItem) {
         this.bookId = bookId;

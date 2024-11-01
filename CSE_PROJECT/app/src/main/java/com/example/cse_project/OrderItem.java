@@ -13,6 +13,9 @@ public class OrderItem {
         this.price = price;
     }
 
+    public OrderItem() {
+    }
+
     // Getters and Setters
     public String getBookId() {
         return bookId;

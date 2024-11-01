@@ -34,26 +34,23 @@ public class UserActivity extends AppCompatActivity {
         moneyTextView = findViewById(R.id.money);
         avatarImageView = findViewById(R.id.avatar);
 
-
+        // Lấy username từ SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
         String username = sharedPreferences.getString("username", null);
 
+        // Khởi tạo Firebase DatabaseReference
         userReference = FirebaseDatabase.getInstance().getReference("User");
 
+        // Lấy dữ liệu người dùng theo username
         loadUserData(username);
 
+        // Xử lý sự kiện cho các nút
         Button logoutButton = findViewById(R.id.logout_button);
         logoutButton.setOnClickListener(v -> logout());
 
         Button accountInfoButton = findViewById(R.id.account_info_button);
         accountInfoButton.setOnClickListener(v -> {
             Intent intent = new Intent(UserActivity.this, ProfileActivity.class);
-            startActivity(intent);
-        });
-
-        Button changePasswordButton= findViewById(R.id.change_password_button);
-        changePasswordButton.setOnClickListener(v -> {
-            Intent intent = new Intent(UserActivity.this, ChangePassword.class);
             startActivity(intent);
         });
 
