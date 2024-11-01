@@ -61,6 +61,7 @@ public class AdminNotiActivity extends AppCompatActivity {
         // Lấy dữ liệu từ Firebase
         loadNotifications();
 
+        // Thêm sự kiện cho FloatingActionButton
         FloatingActionButton addNotificationButton = findViewById(R.id.addNotificationButton);
         addNotificationButton.setOnClickListener(new View.OnClickListener() {
             @Override
