@@ -44,14 +44,14 @@ public class AddProductActivity extends AppCompatActivity {
         ImageView backButton = findViewById(R.id.back_button);
 
 
-        // Khởi tạo Firebase references
+
         storageReference = FirebaseStorage.getInstance().getReference("images");
         databaseReference = FirebaseDatabase.getInstance().getReference("Book");
 
-        // Thiết lập sự kiện cho nút chọn ảnh
+
         buttonSelectImage.setOnClickListener(v -> openFileChooser());
 
-        // Thiết lập sự kiện cho nút lưu sản phẩm
+
         buttonSaveProduct.setOnClickListener(v -> addProduct());
 
         backButton.setOnClickListener(v -> finish());

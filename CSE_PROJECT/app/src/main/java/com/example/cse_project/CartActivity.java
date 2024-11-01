@@ -153,6 +153,11 @@ public class CartActivity extends AppCompatActivity {
             return;
         }
 
+        if (shippingAddress == null || shippingAddress.isEmpty()) {
+            Toast.makeText(this, "Vui lòng điền địa chỉ giao hàng tại Thông Tin Tài Khoản", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         List<OrderItem> orderItems = new ArrayList<>();
         for (Cart cartItem : cartList) {
 

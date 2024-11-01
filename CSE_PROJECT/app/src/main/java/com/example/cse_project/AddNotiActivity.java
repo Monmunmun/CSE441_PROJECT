@@ -53,11 +53,11 @@ public class AddNotiActivity extends AppCompatActivity {
             return;
         }
 
-        // Tạo một đối tượng Notification mới
+
         String notiKey = notificationRef.push().getKey();
         Notification notification = new Notification(notiKey, notificationName, noticeDescription);
 
-        // Lưu thông báo vào Firebase
+
         notificationRef.child(notiKey).setValue(notification).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 Toast.makeText(AddNotiActivity.this, "Thêm thông báo thành công", Toast.LENGTH_SHORT).show();

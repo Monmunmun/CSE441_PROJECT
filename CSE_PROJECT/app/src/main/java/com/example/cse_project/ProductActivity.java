@@ -64,6 +64,15 @@ public class ProductActivity extends AppCompatActivity implements ProductAdapter
             }
         });
 
+        ImageView donhang = findViewById(R.id.donhang);
+        donhang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProductActivity.this, AdminOrderActivity.class);
+                startActivity(intent);
+            }
+        });
+
         FloatingActionButton addProductButton = findViewById(R.id.addProductButton);
         addProductButton.setOnClickListener(new View.OnClickListener() {
             @Override

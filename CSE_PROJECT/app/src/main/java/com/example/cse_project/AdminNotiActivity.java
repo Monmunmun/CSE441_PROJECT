@@ -82,6 +82,13 @@ public class AdminNotiActivity extends AppCompatActivity {
             Intent intent = new Intent(AdminNotiActivity.this, AdminActivity.class);
             startActivity(intent);
         });
+
+        ImageView orderImageView = findViewById(R.id.order);
+        orderImageView.setOnClickListener(v -> {
+            Intent intent = new Intent(AdminNotiActivity.this, AdminOrderActivity.class);
+            startActivity(intent);
+        });
+
     }
 
     private void loadNotifications() {

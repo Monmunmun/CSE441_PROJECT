@@ -44,6 +44,7 @@
         <activity android:name=".OrderItemActivity"></activity>
         <activity android:name=".HelpActivity"></activity>
         <activity android:name=".SearchActivity"></activity>
+        <activity android:name=".AdminOrderActivity"></activity>
         <activity android:name=".CategoryBookActivity"></activity>
         <activity android:name=".ChangePassword"></activity>
     </application>

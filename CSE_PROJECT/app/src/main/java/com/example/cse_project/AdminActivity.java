@@ -14,6 +14,7 @@ public class AdminActivity extends AppCompatActivity {
     private ImageView logoutButton;
     private ImageView productButton;
     private ImageView notificationButton;
+    private ImageView donhangButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +23,7 @@ public class AdminActivity extends AppCompatActivity {
         logoutButton = findViewById(R.id.logout_button);
         productButton = findViewById(R.id.sanpham);
         notificationButton = findViewById(R.id.thongbao);
+        donhangButton = findViewById(R.id.donhang);
 
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +42,12 @@ public class AdminActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 goToAdminNotiActivity();
+            }
+        });
+        donhangButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToOrderActivity();
             }
         });
     }
@@ -63,6 +71,10 @@ public class AdminActivity extends AppCompatActivity {
     }
     private void goToAdminNotiActivity() {
         Intent intent = new Intent(AdminActivity.this, AdminNotiActivity.class);
+        startActivity(intent);
+    }
+    private void goToOrderActivity() {
+        Intent intent = new Intent(AdminActivity.this, AdminOrderActivity.class);
         startActivity(intent);
     }
 }
