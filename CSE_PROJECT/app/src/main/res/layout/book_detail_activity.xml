@@ -32,7 +32,7 @@
             android:layout_weight="1" />
     </LinearLayout>
 
-    <!-- Ảnh của sách -->
+
     <ImageView
         android:id="@+id/book_image"
         android:layout_width="200dp"
@@ -42,7 +42,7 @@
 
         android:contentDescription="Ảnh sách" />
 
-    <!-- Tiêu đề của sách -->
+
     <TextView
         android:id="@+id/book_title"
         android:layout_width="match_parent"
@@ -53,7 +53,7 @@
         android:gravity="center"
         android:paddingTop="8dp" />
 
-    <!-- Tác giả của sách -->
+
     <TextView
         android:id="@+id/book_author"
         android:layout_width="match_parent"
@@ -63,7 +63,7 @@
         android:gravity="center"
         android:paddingTop="4dp" />
 
-    <!-- Giá của sách -->
+
     <TextView
         android:id="@+id/book_price"
         android:layout_width="match_parent"
@@ -73,7 +73,7 @@
 
         android:paddingTop="4dp" />
 
-    <!-- Trạng thái của sách -->
+
     <TextView
         android:id="@+id/status"
         android:layout_width="match_parent"
@@ -82,7 +82,7 @@
         android:textSize="14sp"
         android:paddingTop="8dp" />
 
-    <!-- Chất lượng của sách -->
+
     <TextView
         android:id="@+id/quality"
         android:layout_width="match_parent"
@@ -91,7 +91,7 @@
         android:textSize="14sp"
         android:paddingTop="4dp" />
 
-    <!-- Nút cho vào giỏ hàng -->
+
     <Button
         android:id="@+id/addtocartbutton"
         android:layout_width="match_parent"
@@ -102,7 +102,7 @@
         android:layout_marginTop="16dp"
         android:padding="12dp" />
 
-    <!-- Đánh giá từ người dùng -->
+
     <TextView
         android:id="@+id/userreviewslabel"
         android:layout_width="match_parent"
@@ -138,7 +138,7 @@
             android:padding="12dp"
             android:layout_marginStart="8dp"/>
     </LinearLayout>
-    <!-- RecyclerView danh sách đánh giá -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/reviewsrecyclerview"
         android:layout_width="match_parent"

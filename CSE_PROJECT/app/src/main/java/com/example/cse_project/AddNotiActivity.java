@@ -21,7 +21,7 @@ public class AddNotiActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_noti_activity); // Đảm bảo tên layout khớp với tệp XML bạn đã tạo
+        setContentView(R.layout.add_noti_activity);
 
         // Khởi tạo các view
         notificationNameEditText = findViewById(R.id.notificationNameEditText);

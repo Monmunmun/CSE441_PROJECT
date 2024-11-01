@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".AdminActivity">
 
-    <!-- Phần tiêu đề -->
+
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="0dp"
@@ -21,7 +21,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Phần nội dung trống -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/productRecyclerView"
         android:layout_width="0dp"
@@ -43,7 +43,7 @@
         android:layout_margin="16dp"
         app:tint="@android:color/white" />
 
-    <!-- Thanh điều hướng dưới -->
+
     <LinearLayout
         android:id="@+id/navigation_layout"
         android:layout_width="0dp"
@@ -56,7 +56,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Nút Doanh Thu -->
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
         </LinearLayout>
 
 
-        <!-- Nút Sản Phẩm -->
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -104,7 +104,7 @@
         </LinearLayout>
 
 
-        <!-- Nút Đơn Hàng -->
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -128,7 +128,7 @@
         </LinearLayout>
 
 
-        <!-- Nút Khách Hàng -->
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -152,7 +152,7 @@
         </LinearLayout>
 
 
-        <!-- Nút Thông Báo -->
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"

@@ -69,7 +69,7 @@ public class AddProductActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
             imageUri = data.getData();
-            imagePreview.setImageURI(imageUri); // Hiển thị ảnh đã chọn
+            imagePreview.setImageURI(imageUri);
         }
     }
 
@@ -90,14 +90,14 @@ public class AddProductActivity extends AppCompatActivity {
                         double price = Double.parseDouble(priceString);
                         int stock = Integer.parseInt(stockString);
 
-                        // Tạo đối tượng sản phẩm và lưu vào Firebase
+
                         String key = databaseReference.push().getKey();
                         Product product = new Product(key, title, author, price, uri.toString(), stock, category);
                         databaseReference.child(key).setValue(product)
                                 .addOnCompleteListener(task -> {
                                     if (task.isSuccessful()) {
                                         Toast.makeText(AddProductActivity.this, "Sản phẩm đã được thêm", Toast.LENGTH_SHORT).show();
-                                        finish(); // Quay lại Activity trước đó
+                                        finish();
                                     } else {
                                         Toast.makeText(AddProductActivity.this, "Lỗi khi thêm sản phẩm", Toast.LENGTH_SHORT).show();
                                     }

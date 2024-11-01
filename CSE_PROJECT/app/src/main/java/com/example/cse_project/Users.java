@@ -26,8 +26,6 @@ public class Users {
         this.avatar = avatar;
     }
 
-    public Users() {
-    }
 
 
     public String getUsername() {

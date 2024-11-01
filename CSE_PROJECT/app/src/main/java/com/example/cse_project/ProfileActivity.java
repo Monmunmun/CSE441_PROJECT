@@ -39,20 +39,19 @@ public class ProfileActivity extends AppCompatActivity {
         backButton = findViewById(R.id.back_button);
         saveButton = findViewById(R.id.save_button);
 
-        // Lấy username từ SharedPreferences
+
         SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
         String username = sharedPreferences.getString("username", null);
 
-        // Khởi tạo Firebase DatabaseReference
         userReference = FirebaseDatabase.getInstance().getReference("User");
 
-        // Lấy dữ liệu người dùng
+
         loadUserData(username);
 
-        // Sự kiện nút quay lại
+
         backButton.setOnClickListener(v -> finish());
 
-        // Sự kiện nút Lưu
+
         saveButton.setOnClickListener(v -> saveUserData());
     }
 

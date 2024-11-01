@@ -34,7 +34,7 @@ public class EditProductActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_product);
 
-        // Khởi tạo các thành phần giao diện
+
         editTextTitle = findViewById(R.id.editTextTitle);
         editTextAuthor = findViewById(R.id.editTextAuthor);
         editTextPrice = findViewById(R.id.editTextPrice);
@@ -44,7 +44,7 @@ public class EditProductActivity extends AppCompatActivity {
         buttonSelectImage = findViewById(R.id.buttonSelectImage);
         buttonSaveProduct = findViewById(R.id.buttonSaveProduct);
 
-        // Nhận dữ liệu sản phẩm từ Intent
+
         Intent intent = getIntent();
         productId = intent.getStringExtra("PRODUCT_ID");
         currentImageUrl = intent.getStringExtra("IMAGE_URL");
@@ -54,14 +54,14 @@ public class EditProductActivity extends AppCompatActivity {
         editTextStock.setText(intent.getStringExtra("STOCK"));
         editTextCategory.setText(intent.getStringExtra("CATEGORY"));
 
-        // Hiển thị hình ảnh hiện tại
+
         Picasso.get().load(currentImageUrl).into(imagePreview);
 
         // Khởi tạo Firebase Database và Storage
         databaseReference = FirebaseDatabase.getInstance().getReference("Book");
         storageReference = FirebaseStorage.getInstance().getReference("images");
 
-        // Xử lý sự kiện chọn hình ảnh
+
         buttonSelectImage.setOnClickListener(v -> {
             Intent intentImage = new Intent();
             intentImage.setType("image/*");
@@ -72,7 +72,7 @@ public class EditProductActivity extends AppCompatActivity {
         // Xử lý sự kiện lưu sản phẩm
         buttonSaveProduct.setOnClickListener(v -> saveProduct());
 
-        // Quay lại
+
         ImageView backButton = findViewById(R.id.back_button);
         backButton.setOnClickListener(v -> finish());
     }
@@ -84,13 +84,13 @@ public class EditProductActivity extends AppCompatActivity {
         String stock = editTextStock.getText().toString();
         String category = editTextCategory.getText().toString();
 
-        // Kiểm tra các trường nhập liệu
+
         if (title.isEmpty() || author.isEmpty() || price.isEmpty() || stock.isEmpty() || category.isEmpty()) {
             Toast.makeText(this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Kiểm tra stock và price
+
         int stockValue;
         double priceValue;
         try {
@@ -101,7 +101,7 @@ public class EditProductActivity extends AppCompatActivity {
             return;
         }
 
-        // Nếu có ảnh mới, tải lên Storage
+
         if (imageUri != null) {
             StorageReference fileReference = storageReference.child(System.currentTimeMillis() + ".jpg");
             fileReference.putFile(imageUri).addOnSuccessListener(taskSnapshot ->
@@ -113,7 +113,7 @@ public class EditProductActivity extends AppCompatActivity {
                     Toast.makeText(EditProductActivity.this, "Lỗi khi tải ảnh lên: " + e.getMessage(), Toast.LENGTH_SHORT).show()
             );
         } else {
-            // Nếu không có ảnh mới, dùng URL ảnh cũ
+
             updateProductInDatabase(currentImageUrl, title, author, priceValue, stockValue, category);
         }
     }
@@ -135,7 +135,7 @@ public class EditProductActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData() != null) {
             imageUri = data.getData();
-            imagePreview.setImageURI(imageUri); // Hiển thị hình ảnh mới đã chọn
+            imagePreview.setImageURI(imageUri);
         }
     }
 }

@@ -3,8 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="0dp">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,40 +24,18 @@
             android:id="@+id/titleTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Chỉnh sửa thông báo"
+            android:text="Lịch sử dặt hàng"
             android:textColor="@android:color/white"
             android:textSize="24sp"
             android:gravity="center"
             android:layout_weight="1" />
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/notificationNameEditText"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewOrders"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Tên thông báo"
-        android:inputType="text"
-        android:padding="12dp"
-        android:layout_marginBottom="16dp" />
-
-
-    <EditText
-        android:id="@+id/noticeDescriptionEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Mô tả thông báo"
-        android:inputType="textMultiLine"
-        android:minLines="3"
-        android:padding="12dp"
-        android:layout_marginBottom="16dp" />
-
-
-    <Button
-        android:id="@+id/SaveNotificationButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#4CAF50"
-        android:padding="12dp"
-        android:text="Lưu"
-        android:textColor="@android:color/white" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:clipToPadding="false" />
 </LinearLayout>

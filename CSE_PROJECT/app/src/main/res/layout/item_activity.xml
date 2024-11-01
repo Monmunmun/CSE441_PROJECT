@@ -7,7 +7,6 @@
     android:layout_margin="8dp"
     android:gravity="center">
 
-    <!-- Book Image -->
     <ImageView
         android:id="@+id/book_image"
         android:layout_width="100dp"
@@ -16,7 +15,6 @@
         android:scaleType="fitXY"
         android:contentDescription="Book Image" />
 
-    <!-- Book Title -->
     <TextView
         android:id="@+id/book_title"
         android:layout_width="wrap_content"
@@ -29,7 +27,6 @@
         android:layout_marginTop="5dp"
         android:textColor="#000000" />
 
-    <!-- Book Price -->
     <TextView
         android:id="@+id/book_price"
         android:layout_width="wrap_content"

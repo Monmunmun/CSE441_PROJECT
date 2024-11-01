@@ -40,6 +40,9 @@
         <activity android:name=".AdminNotiActivity"></activity>
         <activity android:name=".AddNotiActivity"></activity>
         <activity android:name=".EditNotiActivity"></activity>
+        <activity android:name=".OrderActivity"></activity>
+        <activity android:name=".OrderItemActivity"></activity>
+        <activity android:name=".HelpActivity"></activity>
     </application>
 
 </manifest>

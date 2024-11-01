@@ -276,10 +276,11 @@
             android:gravity="center">
 
             <ImageView
+                android:id="@+id/hotro"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_help"
-                android:contentDescription="Hỗ trợ" />
+                android:contentDescription="Hỗ trợ"
+                android:src="@drawable/ic_help" />
 
             <TextView
                 android:layout_width="wrap_content"

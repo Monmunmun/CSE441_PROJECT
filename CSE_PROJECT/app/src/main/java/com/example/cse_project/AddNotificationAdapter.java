@@ -39,7 +39,7 @@ public class AddNotificationAdapter extends RecyclerView.Adapter<AddNotification
         // Xử lý sự kiện cho nút sửa
         holder.editButton.setOnClickListener(v -> {
             if (listener != null) {
-                listener.onEditClick(notification);  // Gọi phương thức từ listener
+                listener.onEditClick(notification);
             }
         });
 

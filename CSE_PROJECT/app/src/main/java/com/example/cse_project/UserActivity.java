@@ -34,17 +34,14 @@ public class UserActivity extends AppCompatActivity {
         moneyTextView = findViewById(R.id.money);
         avatarImageView = findViewById(R.id.avatar);
 
-        // Lấy username từ SharedPreferences
+
         SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
         String username = sharedPreferences.getString("username", null);
 
-        // Khởi tạo Firebase DatabaseReference
         userReference = FirebaseDatabase.getInstance().getReference("User");
 
-        // Lấy dữ liệu người dùng theo username
         loadUserData(username);
 
-        // Xử lý sự kiện cho các nút
         Button logoutButton = findViewById(R.id.logout_button);
         logoutButton.setOnClickListener(v -> logout());
 
@@ -60,8 +57,11 @@ public class UserActivity extends AppCompatActivity {
         ImageView categoryIcon = findViewById(R.id.categoryactivity);
         categoryIcon.setOnClickListener(v -> startActivity(new Intent(UserActivity.this, CategoryActivity.class)));
 
-        ImageView cartIcon = findViewById(R.id.cartactivity); // ID của ImageView giỏ hàng
+        ImageView cartIcon = findViewById(R.id.cartactivity);
         cartIcon.setOnClickListener(v -> startActivity(new Intent(UserActivity.this, CartActivity.class)));
+
+        ImageView helpIcon = findViewById(R.id.hotro);
+        helpIcon.setOnClickListener(v -> startActivity(new Intent(UserActivity.this, HelpActivity.class)));
 
         Button notificationsButton = findViewById(R.id.notifications_button);
         notificationsButton.setOnClickListener(v -> {

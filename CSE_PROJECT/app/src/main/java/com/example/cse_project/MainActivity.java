@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Xử lý lỗi nếu cần
+
             }
         });
 
@@ -111,5 +111,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        ImageView helpIcon = findViewById(R.id.hotro);
+        helpIcon.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, HelpActivity.class)));
     }
 }

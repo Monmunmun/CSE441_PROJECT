@@ -39,7 +39,7 @@ public class AdminActivity extends AppCompatActivity {
         notificationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToAdminNotiActivity(); // Gọi phương thức chuyển hướng
+                goToAdminNotiActivity();
             }
         });
     }

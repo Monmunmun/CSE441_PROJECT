@@ -1,28 +1,23 @@
 package com.example.cse_project;
-
 public class Cart {
     private String bookId;
     private String bookImage;
     private String bookTitle;
     private int totalQuantity;
+    private double pricePerItem;
     private double totalPrice;
 
 
-  
-    public Cart() {
-    }
-
-
-    public Cart(String bookId, String bookImage, String bookTitle, int totalQuantity, double totalPrice) {
+    public Cart(String bookId, String bookImage, String bookTitle, int totalQuantity, double pricePerItem) {
         this.bookId = bookId;
         this.bookImage = bookImage;
         this.bookTitle = bookTitle;
         this.totalQuantity = totalQuantity;
-        this.totalPrice = totalPrice;
-
+        this.pricePerItem = pricePerItem;
+        this.totalPrice = pricePerItem * totalQuantity;
     }
 
-    // Getters và Setters
+    // Getters and Setters
     public String getBookId() {
         return bookId;
     }
@@ -53,6 +48,7 @@ public class Cart {
 
     public void setTotalQuantity(int totalQuantity) {
         this.totalQuantity = totalQuantity;
+        this.totalPrice = pricePerItem * totalQuantity;
     }
 
     public double getTotalPrice() {
@@ -63,22 +59,13 @@ public class Cart {
         this.totalPrice = totalPrice;
     }
 
-    public int getQuantity() {
-        return totalQuantity;
-    }
-
-    public double getPrice() {
-        return totalPrice;
-    }
-
-    public String getImageUrl() {
-        return bookImage;
-    }
-
-    public String getTitle() {
-        return bookTitle;
-    }
     public double getPricePerItem() {
-        return totalQuantity > 0 ? totalPrice / totalQuantity : 0;
+        return pricePerItem; // Trả về giá mỗi sản phẩm
+    }
+
+    public void setPricePerItem(double pricePerItem) {
+        this.pricePerItem = pricePerItem;
+        this.totalPrice = pricePerItem * totalQuantity;
     }
 }
+

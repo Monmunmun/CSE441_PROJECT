@@ -36,7 +36,7 @@ public class AdminNotiActivity extends AppCompatActivity {
         notificationAdapter = new AddNotificationAdapter(this, notificationList, new AddNotificationAdapter.OnNotificationClickListener() {
             @Override
             public void onEditClick(Notification notification) {
-                // Xử lý hành động chỉnh sửa thông báo
+
                 Intent intent = new Intent(AdminNotiActivity.this, EditNotiActivity.class);
                 intent.putExtra("NOTI_KEY", notification.getNotiKey());
                 intent.putExtra("NOTIFICATION_NAME", notification.getNotificationName());
@@ -46,7 +46,7 @@ public class AdminNotiActivity extends AppCompatActivity {
 
             @Override
             public void onDeleteClick(Notification notification) {
-                // Xử lý hành động xóa thông báo
+
                 deleteNotification(notification);
             }
         });

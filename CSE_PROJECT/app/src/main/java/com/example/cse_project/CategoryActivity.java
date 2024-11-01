@@ -51,6 +51,9 @@ public class CategoryActivity extends AppCompatActivity {
         ImageView cartIcon = findViewById(R.id.cartactivity);
         cartIcon.setOnClickListener(v -> startActivity(new Intent(CategoryActivity.this, CartActivity.class)));
 
+        ImageView helpIcon = findViewById(R.id.hotro);
+        helpIcon.setOnClickListener(v -> startActivity(new Intent(CategoryActivity.this, HelpActivity.class)));
+
     }
 
 }

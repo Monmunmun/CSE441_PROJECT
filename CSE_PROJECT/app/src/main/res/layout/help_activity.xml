@@ -1,46 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/category_title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="#2E7D32"
-        android:gravity="center"
-        android:padding="16dp"
-        android:text="DANH MỤC"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-
-    <ListView
-        android:id="@+id/category_list"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:divider="@android:color/darker_gray"
-        android:dividerHeight="1dp"
-        app:layout_constraintTop_toBottomOf="@id/category_title"
-        app:layout_constraintBottom_toTopOf="@id/navigation_layout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
     <LinearLayout
-        android:id="@+id/navigation_layout"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#4CAF50"
+        android:padding="16dp">
+        <TextView
+            android:id="@+id/helpTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Trang hỗ trợ"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:gravity="center"
+            android:layout_weight="1" />
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bạn có thể liên hệ với chúng tôi qua các liên kết sau:"
+        android:padding="16dp"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/linkSachMot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Facebook: Sach Mot"
+            android:textSize="16sp"
+            android:autoLink="web"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="openLink" />
+
+        <TextView
+            android:id="@+id/linkMasanoriSaki"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Facebook: Masanori Saki"
+            android:textSize="16sp"
+            android:autoLink="web"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="openLink" />
+
+        <TextView
+            android:id="@+id/linkAnother"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Liên hệ với chúng tôi qua email: support@example.com"
+            android:textSize="16sp"
+            android:autoLink="email"
+            android:clickable="true"
+            android:focusable="true" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
         android:layout_height="55dp"
         android:orientation="horizontal"
         android:weightSum="5"
         android:background="#E0E0E0"
-        android:padding="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:padding="8dp">
 
 
         <LinearLayout
@@ -65,7 +109,6 @@
                 android:textColor="@android:color/black" />
         </LinearLayout>
 
-
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -88,7 +131,7 @@
                 android:textColor="@android:color/black" />
         </LinearLayout>
 
-        <!-- Giỏ hàng -->
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -100,8 +143,8 @@
                 android:id="@+id/cartactivity"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:contentDescription="Giỏ hàng"
-                android:src="@drawable/ic_cart" />
+                android:src="@drawable/ic_cart"
+                android:contentDescription="Giỏ hàng" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -120,11 +163,10 @@
             android:gravity="center">
 
             <ImageView
-                android:id="@+id/hotro"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:contentDescription="Hỗ trợ"
-                android:src="@drawable/ic_help" />
+                android:src="@drawable/ic_help"
+                android:contentDescription="Hỗ trợ" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -156,7 +198,5 @@
                 android:textSize="12sp"
                 android:textColor="@android:color/black" />
         </LinearLayout>
-
     </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

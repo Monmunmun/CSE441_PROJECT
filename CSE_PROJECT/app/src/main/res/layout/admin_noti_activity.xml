@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".AdminNotiActivity">
 
-    <!-- Phần tiêu đề -->
+
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="0dp"
@@ -22,7 +22,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- RecyclerView để hiển thị danh sách thông báo -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notificationRecyclerView"
         android:layout_width="0dp"
@@ -33,7 +33,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- FloatingActionButton để thêm thông báo -->
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addNotificationButton"
         android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
         android:layout_margin="16dp"
         app:tint="@android:color/white" />
 
-    <!-- Thanh điều hướng dưới -->
+
     <LinearLayout
         android:id="@+id/navigation_layout"
         android:layout_width="0dp"

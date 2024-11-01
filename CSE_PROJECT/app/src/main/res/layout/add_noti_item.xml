@@ -7,7 +7,7 @@
     android:padding="8dp"
     android:background="?android:attr/selectableItemBackground">
 
-    <!-- Tên thông báo -->
+
     <TextView
         android:id="@+id/notificationNameText"
         android:layout_width="match_parent"
@@ -18,14 +18,14 @@
         android:textColor="@android:color/black"
         android:paddingBottom="4dp" />
 
-    <!-- Nội dung thông báo và nút chức năng -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical">
 
-        <!-- Nội dung thông báo -->
+
         <TextView
             android:id="@+id/notificationText"
             android:layout_width="0dp"
@@ -37,7 +37,7 @@
             android:ellipsize="end"
             android:maxLines="2" />
 
-        <!-- Nút sửa thông báo -->
+
         <ImageButton
             android:id="@+id/editButton"
             android:layout_width="wrap_content"
@@ -48,7 +48,7 @@
             android:layout_marginEnd="8dp"
              />
 
-        <!-- Nút xóa thông báo -->
+
         <ImageButton
             android:id="@+id/deleteButton"
             android:layout_width="wrap_content"

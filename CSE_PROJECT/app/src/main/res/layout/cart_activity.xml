@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:padding="0dp">
 
-    <!-- Tiêu đề của giỏ hàng -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,16 +22,26 @@
             android:textSize="24sp"
             android:gravity="center"
             android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/ic_history"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="Lịch sử"
+            android:paddingStart="0dp"
+            android:src="@drawable/ic_history" />
+
     </LinearLayout>
 
-    <!-- RecyclerView để hiển thị danh sách sản phẩm -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cartRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
 
-    <!-- Tổng giá và nút Thanh Toán -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,7 +49,7 @@
         android:gravity="center_vertical"
         android:paddingTop="16dp">
 
-        <!-- Hiển thị tổng giá -->
+
         <TextView
             android:id="@+id/totalPrice"
             android:layout_width="0dp"
@@ -49,7 +59,7 @@
             android:textSize="18sp"
             android:textStyle="bold"/>
 
-        <!-- Nút Thanh toán -->
+
         <Button
             android:id="@+id/checkoutButton"
             android:layout_width="wrap_content"
@@ -58,6 +68,7 @@
             android:backgroundTint="#8BC34A"
             android:textColor="@android:color/white"/>
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
@@ -145,10 +156,11 @@
             android:gravity="center">
 
             <ImageView
+                android:id="@+id/hotro"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_help"
-                android:contentDescription="Hỗ trợ" />
+                android:contentDescription="Hỗ trợ"
+                android:src="@drawable/ic_help" />
 
             <TextView
                 android:layout_width="wrap_content"

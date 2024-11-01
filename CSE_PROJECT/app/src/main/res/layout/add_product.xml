@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- Title Bar -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
             android:layout_weight="1" />
     </LinearLayout>
 
-    <!-- Image Selection Section -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
             android:layout_marginTop="8dp" />
     </LinearLayout>
 
-    <!-- Title Input -->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
         android:hint="Nhập tên sản phẩm"
         android:inputType="text" />
 
-    <!-- Author Input -->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -84,7 +84,7 @@
         android:hint="Nhập tên tác giả"
         android:inputType="text" />
 
-    <!-- Price Input -->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
         android:hint="Nhập giá sản phẩm"
         android:inputType="numberDecimal" />
 
-    <!-- Stock Input -->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -114,7 +114,7 @@
         android:hint="Nhập số lượng"
         android:inputType="number" />
 
-    <!-- Category Input -->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -129,7 +129,7 @@
         android:hint="Nhập danh mục sản phẩm"
         android:inputType="text" />
 
-    <!-- Save Button -->
+
     <Button
         android:id="@+id/buttonSaveProduct"
         android:layout_width="match_parent"
