@@ -54,6 +54,13 @@ public class UserActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+
+        Button changePasswordButton= findViewById(R.id.change_password_button);
+        changePasswordButton.setOnClickListener(v -> {
+            Intent intent = new Intent(UserActivity.this, ChangePassword.class);
+            startActivity(intent);
+        });
+
         ImageView homeIcon = findViewById(R.id.mainactivity);
         homeIcon.setOnClickListener(v -> startActivity(new Intent(UserActivity.this, MainActivity.class)));
 
