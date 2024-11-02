@@ -65,7 +65,7 @@
             android:paddingTop="10dp" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/top_best_sellers_list"
+            android:id="@+id/new_book_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"

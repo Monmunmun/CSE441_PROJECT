@@ -3,7 +3,6 @@ package com.example.cse_project;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -23,9 +22,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView bestSellersRecyclerView, newLiteratureRecyclerView;
-    BookAdapter bestSellersAdapter, newLiteratureAdapter;
-    List<Books> bestSellersList, newLiteratureList;
+    RecyclerView newBookRecyclerView, newLiteratureRecyclerView;
+    BookAdapter newBookAdapter, newLiteratureAdapter;
+    List<Books> newBookList, newLiteratureList;
     DatabaseReference databaseReference;
     EditText searchInput;
     Button searchButton;
@@ -35,21 +34,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bestSellersRecyclerView = findViewById(R.id.top_best_sellers_list);
+        newBookRecyclerView = findViewById(R.id.new_book_list);
         newLiteratureRecyclerView = findViewById(R.id.new_literature_books_list);
 
         searchInput = findViewById(R.id.search_input);
         searchButton = findViewById(R.id.search_button);
 
-        bestSellersRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        newBookRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         newLiteratureRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        bestSellersList = new ArrayList<>();
+        newBookList = new ArrayList<>();
         newLiteratureList = new ArrayList<>();
-        bestSellersAdapter = new BookAdapter(this, bestSellersList);
+        newBookAdapter = new BookAdapter(this, newBookList);
         newLiteratureAdapter = new BookAdapter(this, newLiteratureList);
 
-        bestSellersRecyclerView.setAdapter(bestSellersAdapter);
+        newBookRecyclerView.setAdapter(newBookAdapter);
         newLiteratureRecyclerView.setAdapter(newLiteratureAdapter);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Book");
@@ -57,19 +56,19 @@ public class MainActivity extends AppCompatActivity {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                bestSellersList.clear();
+                newBookList.clear();
                 newLiteratureList.clear();
 
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Books book = postSnapshot.getValue(Books.class);
                     if (book != null) {
-                        bestSellersList.add(book);
+                        newBookList.add(book);
                         if ("Văn học".equals(book.getCategory())) {
                             newLiteratureList.add(book);
                         }
                     }
                 }
-                bestSellersAdapter.notifyDataSetChanged();
+                newBookAdapter.notifyDataSetChanged();
                 newLiteratureAdapter.notifyDataSetChanged();
             }
 
@@ -86,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
-
 
         searchButton.setOnClickListener(v -> {
             String keyword = searchInput.getText().toString().trim();

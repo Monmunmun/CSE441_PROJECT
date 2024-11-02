@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class CategoryActivity extends AppCompatActivity {
 
     private ListView categoryListView;
-    private String[] categories = {"Tình yêu", "Hài hước", "Kinh dị", "Kì lạ", "Nông nghiệp", "Kinh tế", "Giải trí"};
+    private String[] categories = {"Tình yêu", "Hài hước", "Kinh dị", "Kì lạ", "Nông nghiệp", "Kinh tế", "Giải trí","Văn học","Toán học","Manga","Thiếu nhi","Tôn giáo","Xã hội","Công nghệ","Nấu ăn"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
