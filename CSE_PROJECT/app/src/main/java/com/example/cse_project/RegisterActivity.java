@@ -19,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText usernameEditText, nameEditText, emailEditText, passwordEditText, confirmPasswordEditText,phoneNumberEditText;
+    private EditText usernameEditText, nameEditText, emailEditText,addressEditText, passwordEditText, confirmPasswordEditText,phoneNumberEditText;
     private Button registerButton;
     private TextView loginTextView;
 
@@ -36,6 +36,8 @@ public class RegisterActivity extends AppCompatActivity {
         registerButton = findViewById(R.id.register_button);
         loginTextView = findViewById(R.id.login_text_view);
         phoneNumberEditText = findViewById(R.id.phone_number);
+        addressEditText = findViewById(R.id.address);
+
 
 
         registerButton.setOnClickListener(new View.OnClickListener() {
@@ -61,10 +63,11 @@ public class RegisterActivity extends AppCompatActivity {
         String name = nameEditText.getText().toString();
         String email = emailEditText.getText().toString();
         String phoneNumber = phoneNumberEditText.getText().toString();
+        String address = addressEditText.getText().toString();
         String password = passwordEditText.getText().toString();
         String confirmPassword = confirmPasswordEditText.getText().toString();
 
-        if (username.isEmpty() || name.isEmpty() || email.isEmpty() || phoneNumber.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+        if (username.isEmpty() || name.isEmpty() || email.isEmpty() || phoneNumber.isEmpty() || address.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
             Toast.makeText(RegisterActivity.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -79,15 +82,11 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
-
                     Toast.makeText(RegisterActivity.this, "Tên đăng nhập đã được sử dụng", Toast.LENGTH_SHORT).show();
                 } else {
-
-                    String defaultAddress = "";
                     String defaultAvatar = "https://cdn-icons-png.flaticon.com/512/1144/1144760.png";
-
                     DatabaseReference newUserRef = userReference.push();
-                    Users user = new Users(newUserRef.getKey(), username, name, email, phoneNumber, defaultAddress, password, 0.0, "user", defaultAvatar);
+                    Users user = new Users(newUserRef.getKey(), username, name, email, phoneNumber, address, password, 0.0, "user", defaultAvatar);
 
                     newUserRef.setValue(user).addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
@@ -106,5 +105,4 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
-
 }

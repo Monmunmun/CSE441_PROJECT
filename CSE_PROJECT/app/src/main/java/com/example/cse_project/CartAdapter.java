@@ -17,7 +17,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
     private Context context;
     private List<Cart> cartList;
-    private CartListener cartListener; // Thêm listener
+    private CartListener cartListener;
 
 
     public interface CartListener {

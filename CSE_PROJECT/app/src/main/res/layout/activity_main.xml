@@ -59,7 +59,7 @@
             android:id="@+id/top_best_sellers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TOP Bán Chạy Tháng 10/2024"
+            android:text="Sách mới cập nhật"
             android:textSize="18sp"
             android:textStyle="bold"
             android:paddingTop="10dp" />

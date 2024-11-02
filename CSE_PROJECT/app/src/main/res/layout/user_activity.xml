@@ -73,7 +73,7 @@
         android:layout_height="320dp"
         android:layout_below="@id/user_info_section"
         android:layout_marginTop="30dp"
-        android:background="@drawable/rounded_corner_background"
+        android:background="@drawable/demo_border"
         android:orientation="vertical"
         android:padding="5dp">
 
@@ -81,19 +81,23 @@
         <Button
             android:id="@+id/account_info_button"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="#8BC34A"
+            android:layout_height="55dp"
+            android:backgroundTint="#FFFFFF"
+            android:textColor="#000000"
             android:drawableLeft="@drawable/ic_info"
             android:gravity="start|center_vertical"
             android:padding="0dp"
-            android:text="Thông Tin Tài Khoản" />
+            android:text="Thông Tin Tài Khoản"
+            />
 
         <!-- Thông báo -->
+
         <Button
             android:id="@+id/notifications_button"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:backgroundTint="#8BC34A"
+            android:backgroundTint="#FFFFFF"
+            android:textColor="#000000"
             android:drawableLeft="@drawable/ic_notification"
             android:gravity="start|center_vertical"
             android:padding="0dp"
@@ -103,8 +107,9 @@
         <Button
             android:id="@+id/change_password_button"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:backgroundTint="#8BC34A"
+            android:layout_height="50dp"
+            android:backgroundTint="#FFFFFF"
+            android:textColor="#000000"
             android:drawableLeft="@drawable/ic_change_password"
             android:gravity="start|center_vertical"
             android:padding="0dp"
@@ -115,7 +120,8 @@
             android:id="@+id/recharge_button"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:backgroundTint="#8BC34A"
+            android:backgroundTint="#FFFFFF"
+            android:textColor="#000000"
             android:drawableLeft="@drawable/ic_money"
             android:gravity="start|center_vertical"
             android:padding="0dp"
@@ -126,7 +132,8 @@
             android:id="@+id/history_button"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:backgroundTint="#8BC34A"
+            android:backgroundTint="#FFFFFF"
+            android:textColor="#000000"
             android:drawableLeft="@drawable/ic_history2"
             android:gravity="start|center_vertical"
             android:padding="0dp"
@@ -137,7 +144,8 @@
             android:id="@+id/logout_button"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:backgroundTint="#8BC34A"
+            android:backgroundTint="#FFFFFF"
+            android:textColor="#000000"
             android:drawableLeft="@drawable/ic_logout"
             android:gravity="start|center_vertical"
             android:padding="0dp"
@@ -162,8 +170,8 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_below="@id/user_functions_section"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/rounded_corner_background"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/demo_border"
         android:orientation="vertical"
         android:padding="0dp">
 
@@ -172,21 +180,23 @@
             android:id="@+id/terms_button"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:backgroundTint="#8BC34A"
+            android:backgroundTint="#FFFFFF"
             android:drawableLeft="@drawable/ic_terms"
             android:gravity="start|center_vertical"
             android:padding="0dp"
-            android:text="Điều Khoản Sử Dụng" />
+            android:text="Điều Khoản Sử Dụng"
+            android:textColor="#000000" />
 
         <Button
             android:id="@+id/support_button"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:backgroundTint="#8BC34A"
+            android:backgroundTint="#FFFFFF"
             android:drawableLeft="@drawable/ic_support"
             android:gravity="start|center_vertical"
             android:padding="0dp"
-            android:text="Liên Hệ Hỗ Trợ" />
+            android:text="Liên Hệ Hỗ Trợ"
+            android:textColor="#000000" />
     </LinearLayout>
 
     <!-- Thanh điều hướng dưới cùng -->

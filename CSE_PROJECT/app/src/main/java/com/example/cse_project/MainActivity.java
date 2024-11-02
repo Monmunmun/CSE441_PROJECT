@@ -64,7 +64,9 @@ public class MainActivity extends AppCompatActivity {
                     Books book = postSnapshot.getValue(Books.class);
                     if (book != null) {
                         bestSellersList.add(book);
-                        newLiteratureList.add(book);
+                        if ("Văn học".equals(book.getCategory())) {
+                            newLiteratureList.add(book);
+                        }
                     }
                 }
                 bestSellersAdapter.notifyDataSetChanged();

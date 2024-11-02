@@ -153,11 +153,6 @@ public class CartActivity extends AppCompatActivity {
             return;
         }
 
-        if (shippingAddress == null || shippingAddress.isEmpty()) {
-            Toast.makeText(this, "Vui lòng điền địa chỉ giao hàng tại Thông Tin Tài Khoản", Toast.LENGTH_LONG).show();
-            return;
-        }
-
         List<OrderItem> orderItems = new ArrayList<>();
         for (Cart cartItem : cartList) {
 
@@ -178,6 +173,8 @@ public class CartActivity extends AppCompatActivity {
         });
     }
 
+
+
     private void clearCart() {
         cartReference.removeValue().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
@@ -190,6 +187,7 @@ public class CartActivity extends AppCompatActivity {
         });
     }
 
+    // Cập nhật số lượng sản phẩm trong giỏ hàng khi có sự thay đổi
     private void updateCartItem(Cart cartItem) {
         cartReference.child(cartItem.getBookId()).setValue(cartItem).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
@@ -200,6 +198,8 @@ public class CartActivity extends AppCompatActivity {
         });
     }
 
+
+    // Xóa sản phẩm khỏi giỏ hàng và cập nhật lại UI sau khi xóa
     private void removeCartItem(Cart cartItem) {
         cartReference.child(cartItem.getBookId()).removeValue().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {

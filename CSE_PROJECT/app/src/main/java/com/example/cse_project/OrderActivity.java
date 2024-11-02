@@ -62,7 +62,6 @@ public class OrderActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                // Xử lý lỗi nếu cần
             }
         });
     }
