@@ -47,6 +47,9 @@
         <activity android:name=".AdminOrderActivity"></activity>
         <activity android:name=".CategoryBookActivity"></activity>
         <activity android:name=".ChangePassword"></activity>
+        <activity android:name=".DepositCardActivity"></activity>
+        <activity android:name=".DepositTypeActivity"></activity>
+        <activity android:name=".DepositBankActivity"></activity>
     </application>
 
 </manifest>

@@ -23,15 +23,15 @@ public class AddNotiActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_noti_activity);
 
-        // Khởi tạo các view
+
         notificationNameEditText = findViewById(R.id.notificationNameEditText);
         noticeDescriptionEditText = findViewById(R.id.noticeDescriptionEditText);
         addNotificationButton = findViewById(R.id.addNotificationButton);
 
-        // Khởi tạo Firebase Database
+
         notificationRef = FirebaseDatabase.getInstance().getReference("Notification");
 
-        // Xử lý sự kiện nhấn nút Thêm Thông Báo
+
         addNotificationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

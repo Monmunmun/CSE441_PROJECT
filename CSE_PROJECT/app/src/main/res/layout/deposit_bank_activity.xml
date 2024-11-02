@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="0dp"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#4CAF50"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="Quay lại"
+            android:src="@drawable/ic_back_page" />
+
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Nạp tiền qua ngân hàng"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:gravity="center"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/helpname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:paddingBottom="16dp"
+        android:text="Mở ứng dụng ngân hàng để quét mã QR"
+        android:textColor="#4CAF50"
+        android:textSize="14sp" />
+    <ImageView
+        android:id="@+id/qr_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/your_qr_code_image"
+        android:layout_gravity="center"
+
+        android:adjustViewBounds="true" />
+
+    <TextView
+        android:id="@+id/account_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="THÔNG TIN TÀI KHOẢN NGÂN HÀNG"
+        android:layout_marginStart="16dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:paddingTop="16dp" />
+
+    <TextView
+        android:id="@+id/account_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CHỦ TÀI KHOẢN: PHAM ANH DUC"
+        android:layout_marginStart="16dp"
+        android:textSize="14sp"
+        android:paddingBottom="4dp" />
+
+    <TextView
+        android:id="@+id/bank_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NGÂN HÀNG: BIDV"
+        android:layout_marginStart="16dp"
+        android:textSize="14sp"
+        android:paddingBottom="16dp" />
+
+    <TextView
+        android:id="@+id/transfer_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nội dung chuyển khoản: NAP_SOTIEN_USERNAME_SODIENTHOAI"
+        android:layout_marginStart="16dp"
+        android:textSize="14sp"
+        android:textColor="@android:color/holo_red_dark"
+        android:paddingBottom="8dp" />
+
+    <TextView
+        android:id="@+id/help_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Các giao dịch chuyển sai '\Nội dung chuyển khoản\'"
+        android:layout_marginStart="16dp"
+        android:textSize="12sp"
+        android:paddingBottom="4dp" />
+
+    <TextView
+        android:id="@+id/fanpage_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vui lòng liên hệ Fanpage để được hỗ trợ"
+        android:layout_marginStart="16dp"
+        android:textSize="12sp" />
+
+</LinearLayout>

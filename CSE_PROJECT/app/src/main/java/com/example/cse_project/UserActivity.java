@@ -79,6 +79,12 @@ public class UserActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        Button rechargeButton = findViewById(R.id.recharge_button);
+        rechargeButton.setOnClickListener(v -> {
+            Intent intent = new Intent(UserActivity.this, DepositTypeActivity.class);
+            startActivity(intent);
+        });
+
     }
 
     private void loadUserData(String username) {

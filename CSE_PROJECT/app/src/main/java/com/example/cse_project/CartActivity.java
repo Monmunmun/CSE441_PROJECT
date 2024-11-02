@@ -173,8 +173,6 @@ public class CartActivity extends AppCompatActivity {
         });
     }
 
-
-
     private void clearCart() {
         cartReference.removeValue().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
