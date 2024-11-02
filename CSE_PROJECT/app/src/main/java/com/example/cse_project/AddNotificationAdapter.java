@@ -36,14 +36,14 @@ public class AddNotificationAdapter extends RecyclerView.Adapter<AddNotification
         holder.notificationNameText.setText(notification.getNotificationName());
         holder.notificationText.setText(notification.getNoticeDescription());
 
-        // Xử lý sự kiện cho nút sửa
+
         holder.editButton.setOnClickListener(v -> {
             if (listener != null) {
                 listener.onEditClick(notification);
             }
         });
 
-        // Xử lý sự kiện cho nút xóa
+
         holder.deleteButton.setOnClickListener(v -> {
             if (listener != null) {
                 listener.onDeleteClick(notification);

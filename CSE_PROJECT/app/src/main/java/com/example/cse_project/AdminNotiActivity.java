@@ -30,7 +30,7 @@ public class AdminNotiActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_noti_activity);
 
-        // Khởi tạo RecyclerView và danh sách thông báo
+
         notificationRecyclerView = findViewById(R.id.notificationRecyclerView);
         notificationList = new ArrayList<>();
         notificationAdapter = new AddNotificationAdapter(this, notificationList, new AddNotificationAdapter.OnNotificationClickListener() {
@@ -41,7 +41,7 @@ public class AdminNotiActivity extends AppCompatActivity {
                 intent.putExtra("NOTI_KEY", notification.getNotiKey());
                 intent.putExtra("NOTIFICATION_NAME", notification.getNotificationName());
                 intent.putExtra("NOTICE_DESCRIPTION", notification.getNoticeDescription());
-                startActivity(intent);  // Khởi động EditNotiActivity
+                startActivity(intent);
             }
 
             @Override

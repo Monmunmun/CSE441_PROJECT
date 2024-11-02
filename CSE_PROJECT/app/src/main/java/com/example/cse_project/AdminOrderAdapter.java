@@ -41,7 +41,6 @@ public class AdminOrderAdapter extends RecyclerView.Adapter<AdminOrderAdapter.Or
         holder.statusTextView.setText("Trạng thái: " + order.getStatus());
         holder.shippingAddressTextView.setText("Nơi giao hàng: " + order.getShippingAddress());
 
-        // Thiết lập sự kiện cho các nút
         holder.shipButton.setOnClickListener(v -> onOrderClickListener.onShipButtonClick(order));
         holder.confirmButton.setOnClickListener(v -> onOrderClickListener.onConfirmButtonClick(order));
     }
@@ -69,7 +68,7 @@ public class AdminOrderAdapter extends RecyclerView.Adapter<AdminOrderAdapter.Or
             totalAmountTextView = itemView.findViewById(R.id.total_amount);
             orderDateTextView = itemView.findViewById(R.id.order_date);
             statusTextView = itemView.findViewById(R.id.status);
-            shippingAddressTextView = itemView.findViewById(R.id.shipping_address); // Thêm dòng này
+            shippingAddressTextView = itemView.findViewById(R.id.shipping_address);
             shipButton = itemView.findViewById(R.id.ship_button);
             confirmButton = itemView.findViewById(R.id.confirm_button);
         }

@@ -103,12 +103,10 @@ public class AdminOrderActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
     private void navigateToProductActivity() {
         Intent intent = new Intent(AdminOrderActivity.this, ProductActivity.class);
         startActivity(intent);
     }
-
 
     private void navigateToAdminNotiActivity() {
         Intent intent = new Intent(AdminOrderActivity.this, AdminNotiActivity.class);
